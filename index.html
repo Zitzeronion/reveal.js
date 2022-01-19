@@ -1,14 +1,17 @@
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Dynamics of thin liquid film flows studied with the lattice Boltzmann method</title>
+
+		<meta name="description" content="Because more is more or less?">
+		<meta name="author" content="Stefan Zitz">
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -16,8 +19,286 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<style>
+					.citation {
+						color: #FED650;
+						font-size: 75%;
+						position: relative;
+						top: 5px;
+					}
+					</style>
+				<section>
+					<a href="https://github.com/Zitzeronion/Swalbe.jl">
+						<img src="https://iffmd.fz-juelich.de/uploads/upload_6d1ebdeea1ffe569b42ccf75fa0f500a.png" alt="great wave" style="width: 560px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h3>Dynamics of thin liquid film flows studied with the lattice Boltzmann method</h3>
+					<p>
+						<small>Stefan Zitz, group meeting, 19th Jan. 2022</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Outlook</h2>
+					<ol>
+						<li>Modelling and numerics</li>
+						<li>Fluctuation assisted dewetting</li>
+						<li>Complex wettability gradients</li>
+						<li>Summary</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Yet another solver</h2>
+					<a>
+						<img src="https://iffmd.fz-juelich.de/uploads/upload_229159eb0c01377070cb3f8aec56552e.png" alt="puzzle picture" width="650" class="image">
+					</a>
+				</section>
+
+				<section>
+					<h2><a style="color:Tomato;">SWALBE</a> - <a style="color:Tomato;">S</a>hallow <a style="color:Tomato;">WA</a>ter <a style="color:Tomato;">L</a>attice <a style="color:Tomato;">B</a>oltzmann solv<a style="color:Tomato;">E</a>r</h2>
+					<a>
+						<img src="https://iffmd.fz-juelich.de/uploads/upload_3d9ccc90e0943e4b48bb8824ca1ef16b.png" alt="flow chart" width="650" class="image">
+					</a>
+				</section>
+
+				<section>
+					<h2>Shallow waters</h2>
+					<p>The ocean is about 3000m deep but \(2\pi\) 6000km wide, \(h/L \ll 1\)</p>
+					\[ \begin{align}
+						\int_b^h \rho(\vec{x}, t)\diff z &= h(\mathbf{x},t) \\
+						\partial_t h + \nabla \cdot (h \mathbf{u})  &= 0 \\
+						\partial_t (h \mathbf{u}) + \nabla \cdot (h \mathbf{u}\mathbf{u}) &= -gh \nabla h + \nu \nabla^2 (h\mathbf{u})\\ \qquad\qquad+ 2\nu \nabla (\nabla \cdot (h\mathbf{u})) + \mathbf{F}
+					\end{align} \]
+
+					<p>
+						<small style="color: #FED650;">Salmon, R. <em>Journal of Marine Research</em>, <b>1999</b>;</small>
+						<small style="color: #FED650;">Marche, F. <em>Eur. J. Mech. B Fluids</em>, <b>2007</b></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Thin films</h2>
+					<p>Okay, but that</p>
+					\[ \begin{align}
+						\partial_t h + \nabla \cdot (h \mathbf{u})  &= 0 \\
+						\partial_t (h \mathbf{u}) + \nabla \cdot (h \mathbf{u}\mathbf{u}) &= -gh \nabla h + \nu \nabla^2 (h\mathbf{u})\\ \qquad\qquad+ 2\nu \nabla (\nabla \cdot (h\mathbf{u})) + \mathbf{F}
+					\end{align} \]
+					<p>is not exactly this</p>
+					\[ \partial_t h = \nabla\cdot(M(h)\nabla p) \]
+
+					<p>
+						<small style="color: #FED650;">Oron, et al. <em>Rev. Mod. Phys</em>, <b>1997</b>;</small>
+						<small style="color: #FED650;">Craster, Matar <em>Rev. Mod. Phys</em>, <b>2009</b></small>
+					</p>
+				</section>
+
+				<section>
+					<h3>Matching</h3>
+					<ul>
+						<li>Advection is small</li>
+    					\[ \nabla \cdot (h \mathbf{u}\mathbf{u})\Rightarrow 0 \]
+						<li>Longitudinal viscous terms are small</li>
+    					\[ \nu \nabla^2 (h\mathbf{u})~\&~\nu \nabla (\nabla \cdot (h\mathbf{u})) \Rightarrow 0 \] 
+ 						<li>Forces account for pressure <a style="color: lightgreen;">p</a> and friction <a style="color: lightskyblue;">\( \alpha_{\delta}(h) \)</a></li>
+     					\[ F_p = \frac{h}{\rho_0}\nabla\color{lightgreen}{\gamma(\Delta h - \Pi(h))},\quad F_{\delta}=-\nu\color{lightskyblue}{\frac{6h}{2h^2+6h\delta+3\delta^2}}\mathbf{u} \]
+						<li>Quasi steady processes</li>
+    					\[ \partial_t(h\mathbf{u})\approx 0 \]
+					</ul>
+					
+				</section>
+					
+				<section>
+					<h2>The model</h2>
+					\[ \partial_t h + \nabla \cdot (h \mathbf{u})  = 0 \]
+					<p>Our assumptions</p>
+					\[ \mathbf{u} \approx \frac{1}{\nu \alpha(h)}\left(-gh \nabla h -\frac{1}{\rho_0}h\nabla p + \mathbf{F}\right) \]
+					<p>Neglecting gravity and \( \mu = \rho_0\nu \)</p>
+					\[ \partial_t h \approx \nabla \cdot \left(\frac{h^3}{3\mu}\nabla p\right) \]
+					<p>
+						<small style="color: #FED650;">Zitz, et al. <em>Phys. Rev. E</em>, <b>2019</b></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Lattice Boltzmann method</h2>
+					<p>Evolution equation based on Boltzmann equation with simplified collision operator \( \Omega \)</p>
+					\[ f_l(\mathbf{x}+\mathbf{c}^{(l)}\Delta t,t+\Delta t) = f_l(\mathbf{x},t)\\
+					-\underbrace{\frac{\Delta t}{\tau}(f_l(\mathbf{x},t) - f_l^{(eq)}(\mathbf{x},t))}_{\Omega} + w_l \frac{\Delta t}{c_s^2} \mathbf{c}^{(l)} \cdot \mathbf{F} \]
+
+					<p>
+						<small style="color: #FED650;">Krüger et al. <em>The Lattice Boltzmann Method</em>, <b>2017</b>;</small>
+						<small style="color: #FED650;">Bhatnagar, Gross, Krook, <em>Phys. Rev.</em>, <b>1954</b>;</small>
+						<small style="color: #FED650;">Frisch, Hasslacher, Pomeau, <em>Phys. Rev. Let.</em>, <b>1986</b></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Shallow water LBM</h2>
+					<p>Undefined: \( f_l^{(eq)}, w_l, \mathbf{F} \)</p>
+
+					\[ w_l  = \{4/9, 1/9, 1/36\} \]
+
+					\[ f_l^{(eq)}  =
+						\left\{
+						\begin{array}{ll}
+						h - \color{Tomato}{\frac{5gh^2}{6c_s^2}} - \frac{2hu^2}{3c_s^2}& l = 0 \\
+						\color{Tomato}{\frac{gh^2}{6c_s^2}} + \frac{h \mathbf{c}^{(l)}\cdot \mathbf{u}}{3 c_s^2} + \frac{h(\mathbf{c}^{(l)}\cdot \mathbf{u})^2}{2 c_s^4}-\frac{hu^2}{6c_s^2} &  l=1,3,5,7 \\
+						\color{Tomato}{\frac{gh^2}{24c_s^2}} + \frac{h \mathbf{c}^{(l)}\cdot\mathbf{u}}{12 c_s^2} + \frac{h (\mathbf{c}^{(l)}\cdot\mathbf{u})^2}{8c_s^4}-\frac{hu^2}{24c_s^2} & l=2,4,6,8
+						\end{array}
+					\right. \]
+				</section>
+
+				<section>
+					<h2>Simulations</h2>
+					<a>
+						<img src="https://iffmd.fz-juelich.de/uploads/upload_a421cffd14e4ba15c32cd0a0a1cdb471.png" alt="dewetting logo" width="800" class="image"><br>
+						<img src="https://iffmd.fz-juelich.de/uploads/upload_b0adf13f0f3b6ac6274d919ebde535d1.png" alt="Capillary vs Bond" width="450" class="image">
+					</a>
+				</section>
+
+				<section>
+					<h2>Thermal fluctuations</h2>
+					<a>
+						<img src="https://iffmd.fz-juelich.de/uploads/upload_3a7e5e00d4ee58508e4ed8e0c74fd0af.png" alt="Thermal fluctuations" width="1200px" class="image">
+					</a>			
+				</section>
+
+				<section>
+					<h2>Theoretical approach</h2>
+					<ol>
+						<li>Start with Landau-Lifshitz Navier Stokes</li>
+						<li>Make the thin film assumptions, e.g. \( h/L \ll 1 \)</li>
+						<li>Try to integrate out dependencies on \( z \)</li>
+						<li>Find yourself with a nasty noise term</li>
+						<li>Work on something else</li>
+					</ol>
+					<p>
+						<small style="color: #FED650;">Landau, Lifshitz. <em>Fluid Mechanics Vol. 6</em>, <b>1959</b></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Stochastic thin film equation</h2>
+					<p>Before</p>
+					\[ \partial_t h = \nabla\cdot(M(h)\nabla p) \]
+					<p>and with fluctuations</p>
+					\[\partial_t h = \nabla\cdot\left(M(h)\nabla p + \color{Tomato}{\sqrt{2k_BTM(h)}\mathcal{N}(t)}\right) \]
+
+					<p>
+						<small style="color: #FED650;">Grün et al. <em>J. Stat. Phys.</em>, <b>2006</b>;</small>
+						<small style="color: #FED650;">Mecke, Rauscher <em>J. Phys. Condens. Matter</em>, <b>2005</b></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Matching the fluctuations</h2>
+					<p>Add fluctuations as body force</p>
+					\[ u \approx \frac{h}{\mu \alpha_{\delta}(h)}\nabla p - \frac{\rho_0}{\mu \alpha_{\delta}(h)}F_{\text{fluc}} \]
+					<p>After term by term matching</p>
+					\[ F_{\text{fluc}} = \frac{1}{\rho_0} \sqrt{2 k_B T \mu \alpha(h)}\mathcal{N} \]
+					<p>
+						<small style="color: #FED650;">Zitz et al. <em>Phys. Rev. E</em>, <b>2021</b></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Structure factor</h2>
+					<img src="https://iffmd.fz-juelich.de/uploads/upload_926767afc2f2ecf88b96f03a580d9417.png" alt="Structure factor" width="500" class="image">
+
+					\[ S(q,t) = (2\pi)^2\left[S_0(q)e^{2\omega(q)t} + \frac{k_BTh_0^3}{3\mu}\frac{q^2}{\omega(q)}(e^{2\omega(q)t} - 1)\right] \]
+				</section>
+
+				<section>
+					<h2>And other measures</h2>
+					<img src="https://iffmd.fz-juelich.de/uploads/upload_84a0a2766cc40699defa4de797b7e0de.png" alt="thermal measures" width="2000" class="image">
+
+					<ul>
+						<li>Exponential growth (left <span style="color:#1F77B4">dashed dotted</span>)</li>
+						<li>\( q_m \) approaches \( q_0 \) from the right (right \(\color{#1F77B4}\bullet, \color{#FF7F0E}\blacktriangle, \color{#2CA02C}\star) \)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Pattterned substrates</h2>
+					<img src="https://iffmd.fz-juelich.de/uploads/upload_f3b7580b3bb185bc3a04c0bf8e4355bf.png" alt="patterned substrates" width="2000" class="image">
+					\[ \theta_{\text{eq}}(x) = 
+					\left\{
+					\begin{array}{ll}
+						\theta_0 - \frac{\pi}{36} & \text{if} \quad\sin\left(\frac{2\pi lx}{L}\right) \leq 0, \\
+						\theta_0 + \frac{\pi}{36} & \text{otherwise}
+					\end{array}
+					\right. \]
+				</section>
+
+				<section>
+					<h2>Differences</h2>
+					<img src="https://iffmd.fz-juelich.de/uploads/upload_7f9405a38b46e80d4f25a3b8267bccb1.png" alt="differences" width="500" class="image">
+					<ul>
+						<li>A closer look reveals differences</li>
+						<li>Wider rupture time distribution</li>
+						<li>Hearing the difference ;)</li>
+					</ul>
+					
+				</section>
+
+				<section>
+					<h2>Complex wettability</h2>
+					<p>
+						First idea: <span style="color:Tomato">"<em>Discretize the contact angle \( \theta \)</em>"</span><br>
+						Okay we had this already \( \theta = \theta(\mathbf{x}) \)<br>
+						Second idea: <span style="color:Tomato">"<em>Asign an update scheme to \( \theta \)</em>"</span><br>
+						Such that  \( \theta(\mathbf{x}) = \theta(\mathbf{x},t) \)
+					</p>
+				</section>
+
+				<section>
+					<h2>Who cares?</h2>
+					<iframe width="700" height="405" src="https://www.youtube.com/embed/ncfZWqPm7-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</section>
+
+				<section>
+					<h2>Film stability</h2>
+					<p><em>"Weeks of coding have saved me hours of thinking"</em></p>
+					<ol>
+						<li>Initialize an unstable film</li>
+						<li>Base line simulations with \( v_{\theta} = 0 \)</li>
+						<li>Increase \( v_{\theta} \) in terms of \( v_0 \)</li>
+							\[ v_0 = \frac{\lambda}{t_0} \]
+						<li>Check for effects on the dewetting</li>
+					</ol>
+						
+				</section>
+
+				<section>
+					<h2>Below critical velocity</h2>
+					<iframe width="700" height="405" src="https://www.youtube.com/embed/xl57RTFi4oI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</section>
+
+				<section>
+					<h2>Above critical velocity</h2>
+					<iframe width="700" height="405" src="https://www.youtube.com/embed/QgOgNGkUQK4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</section>
+
+				<section>
+					<h2>Theory</h2>
+					<p>Morphological transition for \( \Gamma > 1 \) </p>
+
+					\[ \Gamma = \frac{v_{\theta}}{U_{\theta}} \propto \frac{3\lambda }{\Theta^3}\chi \]
+					
+					<p>where \( v_{\theta} = \chi v_0 \), \( \Theta = \max(\theta) \) and \( \lambda \) is the pattern wavelength</p>
+				</section>
+
+				<section>
+					<h2>Summary</h2>
+					<ul>
+						<li>Model development</li>
+						<li>Thin film simulation</li>
+						<li>Inclusion of thermal fluctuations</li>
+						<li>Complex wetting scenarios</li>
+					</ul>
+					<br>
+					<h3 style="color: tomato;">Thank you</h3>
+				</section>
 			</div>
 		</div>
 
@@ -25,15 +306,28 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				slideNumber: true,
 
+				mathjax2: {
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ],
+							diff: '\\mathop{}\\!\\mathrm{d}'
+						}
+					}
+				},
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax2 ],
+				//plugins: [ RevealMath.MathJax2 ]
 			});
 		</script>
 	</body>
