@@ -41,12 +41,15 @@
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
                         <h2>Dewetting</h2>
-						<p>
-							<iframe width="420" height="250" src="https://www.youtube.com/embed/ewVSHU-jzt8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<iframe width="420" height="250" src="https://www.youtube.com/embed/xl57RTFi4oI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<iframe width="420" height="250" src="https://www.youtube.com/embed/QgOgNGkUQK4?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</p>
-                        <span style="color: #FED650; font-size:50%">S. Zitz, A. Scagliarini and J. Harting, <em>under review</em></span>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">Spinodal</p>
+							<P style="padding: 0.0em; margin: 0px 0px 0px 400px">Nucleation</P>
+						</div>
+						<a href="https://www.nature.com/articles/nmat788#citeas">
+							<img src="assets/41563_2003_Article_BFnmat788_Fig1_HTML.webp" width="450">
+							<img src="assets/41563_2003_Article_BFnmat788_Fig2_HTML.webp" width="478">
+						</a>
+                        <span style="color: #FED650; font-size:50%">Becker J. et al., <em>Nat. Mater</em> <b>2 2003</b></span>
                     </section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
                         <h2>Three shades of dewetting</h2>
@@ -55,47 +58,51 @@
 							<iframe width="420" height="250" src="https://www.youtube.com/embed/xl57RTFi4oI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							<iframe width="420" height="250" src="https://www.youtube.com/embed/QgOgNGkUQK4?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</p>
-                        <span style="color: #FED650; font-size:50%">S. Zitz, A. Scagliarini and J. Harting, <em>under review</em></span>
+                        <span style="color: #FED650; font-size:50%">Zitz S.,Scagliarini A. and Harting J., <em>under review</em></span>
                     </section>
 				</section>
 
 				<section>
-                	<section data-auto-animate data-auto-animate-unmatched="fade">
-                	    <h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
-                	    <p>
-                	        <blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
-                	            &ldquo;Weeks of coding have saved me hours of thinking.&rdquo;
-                	        </blockquote>
-                	    </p>
-                	    <p>
-                	        \[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0\\ 
-                	            \mathbf{u} \approx \frac{1}{\nu \alpha(h)}\left(-gh \nabla h -\frac{1}{\rho_0}h\nabla p + \color{tomato}{\mathbf{F}}\right) \\
-                	            \partial_t h \approx \nabla \cdot \left(\frac{h^3}{3\mu}\nabla \color{tomato}{p}\right)\]
-                	        <span style="color: #FED650; font-size:50%">S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b>, S. Zitz et al., <em>PRE</em>, <b>100(3) 2019</b></span>
-                	    </p>
-					
-                	</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
+					<section>
+						<h2>Switchable Substrates</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -700px">
+								<a href="https://www.science.org/doi/10.1126/science.288.5471.1624">
+									<img src="https://www.science.org/cms/10.1126/science.288.5471.1624/asset/66e669e5-9012-4cdc-ade8-455af0867a10/assets/graphic/se1708515002.jpeg" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
+								</a>
+							</p>
+							<P style="padding: 0.0em; margin: 0px 0px 0px 350px">
+								<span style="display: inline-block;" class="fragment fade-right">\[\partial_t h(\mathbf{x},t) = \nabla\cdot(M(h)\nabla p)\\ 
+									p(\mathbf{x},t) = -\gamma\Delta h - \Pi(h) \\
+									\theta(\mathbf{x},t) \approx \theta_0 + \delta\theta f(\mathbf{x},t)\\
+									f(\mathbf{x},t) = \sin(q_{\theta}(x+v_xt))\times\\\sin(q_{\theta}(y+v_yt))\]</span>
+							</P>
+						</div>
+						<span style="color: #FED650; font-size:50%">Ichimura, K. et al., <em>Science</em>, <b>288(5471) 2000</b></span>
+					</section>
+					<section>
 						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
 						<p>
-                	        <blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
-                	            &ldquo;Ideas can be implemented and tested quickly with a two dimensional system....&rdquo;
-                	        </blockquote>
-                	    </p>
-						<p>\[F_{\gamma} = \frac{3}{2}\partial_x\gamma\]</p>
-                	    <p>\[p = \gamma\partial_x^2 h + \Pi(h)\]</p>
-						<p>\[\Pi(h) = K(\theta,\gamma)f(h)\]</p>
-						<p><span style="color: #FED650; font-size:50%">S. Zitz et al., <em>arXiv</em>, <b>2022</b> </span></p>
+							<blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
+								&ldquo;Weeks of coding have saved me hours of thinking.&rdquo;
+							</blockquote>
+						</p>
+						<p>
+							\[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0\\ 
+							\mathbf{u} \approx \frac{1}{\nu \alpha(h)}\left(-gh \nabla h -\frac{1}{\rho_0}h\nabla p + \mathbf{F}\right) \\
+							\partial_t h \approx \nabla \cdot \left(\frac{h^3}{3\mu}\nabla p\right)\]
+						</p>
+						<span style="color: #FED650; font-size:50%">Zitz S. et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b></span>
 					</section>
 				</section>
                 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Scaling laws</h2>
+						<h2>Static pattern</h2>
 						<p>
-							<video src="assets/Borcia_Bestehorn_coal.mp4" data-autoplay controls loop></video>
+							<img src="assets/Static_new_theta20t0.svg" width="400">
+							<img src="assets/Rupture_times_Gamma_theta_20.pdf" width="400">
 						</p>
-						<p><span style="color: #FED650; font-size:50%">R. Borcia & M. Bestehorn, <em>Langmuir</em>, <b>29(14) 2013</b> </span></p>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Scaling laws</h2>
