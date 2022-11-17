@@ -39,7 +39,8 @@
 				</section>
 
 				<section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
+					<!---
+						<section data-auto-animate data-auto-animate-unmatched="fade">
                         <h2>Dewetting</h2>
 						<div class="r-stack">
 							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">Spinodal</p>
@@ -50,7 +51,8 @@
 							<img src="assets/41563_2003_Article_BFnmat788_Fig2_HTML.webp" width="478">
 						</a>
                         <span style="color: #FED650; font-size:50%">Becker J. et al., <em>Nat. Mater</em> <b>2 2003</b></span>
-                    </section>
+                    	</section>
+						--->
 					<section data-auto-animate data-auto-animate-unmatched="fade">
                         <h2>Three shades of dewetting</h2>
 						<p>
@@ -92,97 +94,101 @@
 							\mathbf{u} \approx \frac{1}{\nu \alpha(h)}\left(-gh \nabla h -\frac{1}{\rho_0}h\nabla p + \mathbf{F}\right) \\
 							\partial_t h \approx \nabla \cdot \left(\frac{h^3}{3\mu}\nabla p\right)\]
 						</p>
-						<span style="color: #FED650; font-size:50%">Zitz S. et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b></span>
+						<span style="color: #FED650; font-size:50%">Zitz S. et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b>; Zitz, S. et al. <em>JOSS</em>, <b>7(77) 2022</b></span>
 					</section>
 				</section>
                 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Static pattern</h2>
+						<p>
+							<iframe width="650" height="420" src="https://www.youtube.com/embed/ewVSHU-jzt8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Static pattern</h2>
 						<div class="r-stack">
-							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
-								<img src="assets/Clusters_sin_pictures_noV.svg" width="600">
+							<p style="padding: 0.0em; margin: 50px 0px 0px -500px">
+								<img src="assets/Clusters_sin_pictures_noV.svg" width="550">
 							</p>
 							<P style="padding: 0.0em; margin: 0px 0px 0px 500px">
 								Time scale $t_0$
 								\[ t_0 = \frac{3\mu}{\gamma h_0^3q_0^4} \]
 								Length scale $2\pi/q_0$
-								\[ q_0^2 = -\frac{\Pi(h)}{\gamma} \]
-								<span class="fragment">\[\tau = \sqrt{\rho R_0^3/\gamma}\]</span>
+								\[ q_0^2 = \frac{1}{2\gamma}\frac{\partial \Pi(h)}{\partial h}\bigg\rvert_{h=h_0} \]
 							</P>
 						</div>
-						<p><span style="color: #FED650; font-size:50%">A. Eddi et al., <em>PRL</em>, <b>111(14) 2013</b> </span></p>
+						<p><span style="color: #FED650; font-size:50%">Mecke K., Rauscher M., <em> J. Phys. Condens. Matter</em>, <b>17 2005</b> </span></p>
+					</section>
+					
+				</section>
+
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Stability</h2>
+						<p>
+							<img src="assets/rupT.png" width="550">
+						</p>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Scaling laws</h2>
+						<h2>Stability</h2>
 						<div class="r-stack">
-							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
-								<img src="assets/bridge_evo_gamma0.svg" width="600" height="400">
+							<p style="padding: 0.0em; margin: 50px 0px 0px -500px">
+								<img src="assets/rupT.png" width="550">
 							</p>
 							<P style="padding: 0.0em; margin: 0px 0px 0px 500px">
-								\[ p_c \sim \gamma\kappa \\
-								p_i \sim \rho (h_0/t)^2 \\
-								h_0 \sim t^{2/3} \]
-								<span class="fragment">\[\tau = \sqrt{\rho R_0^3/\gamma}\]</span>
+								Perturbations
+								\[ t_{\theta} \propto t_0q_0^2\lambda^2 \]
+								Retraction
+								\[ t_R \propto \frac{1}{U_{\Theta}}\lambda \]
 							</P>
 						</div>
-						<p><span style="color: #FED650; font-size:50%">A. Eddi et al., <em>PRL</em>, <b>111(14) 2013</b> </span></p>
 					</section>
 				</section>
 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Marangoni flows</h2>
-						<div class="r-stack">
-							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
-								<img src="assets/gammas.svg" width="600" height="400">
-							</p>
-			
-							<ul style="padding: 0.0em; margin: 80px 0px 0px 620px">
-									<li>Constant value</li>
-									<li>Heaviside - step</li>
-									<li>Smoothed step \(\tanh(x,w)\)</li>
-							</ul>
-						</div>
+						<h2>Droplet advection</h2>
+						<P>
+							<iframe width="720" height="450" src="https://www.youtube.com/embed/xl57RTFi4oI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</P>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Marangoni flows</h2>
-						<video src="assets/Borcia_Bestehorn_noncoal.mp4" data-autoplay controls loop></video>
-						<p><span style="color: #FED650; font-size:50%">R. Borcia & M. Bestehorn, <em>Langmuir</em>, <b>29(14) 2013</b> </span></p>
+						<h2>Droplet advection</h2>
+						<p>
+							<video src="assets/d0sm02082f2.mp4" data-autoplay controls loop></video>
+						</p>
+						<p><span style="color: #FED650; font-size:50%">Grawitter J., Stark H., <em> Soft Matter</em>, <b>17 2021</b> </span></p>
 					</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Maragoni flows</h2>
-						<img src="assets/h_final_three.svg" class="r-stretch">
-					</section>
-
+					
 				</section>
 
 				<section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Understanding Separation</h2>
-						<div class="r-stack">
-							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
-								<img src="assets/bridge_evo_all2.svg" width="500">
-							</p>
-							<P style="padding: 0.0em; margin: 0px 0px 0px 400px">
-								<img src="assets/hdiff_inset.svg" width="500">
-							</P>
-						</div>
+					<h2>Rivulets</h2>
+					<p>
+						<iframe width="720" height="450" src="https://www.youtube.com/embed/QgOgNGkUQK4?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Morphologies</h2>
+
+						\[ \psi_s(K) = \int_0^{2\pi} e^{is\phi}\rho_K(\phi)d\phi = \sum_{k=-\infty}^{\infty} L_k e^{is\phi_k} \\
+						   \rho_K(\phi) = \sum_K L_k\delta(\phi-\phi_k), \quad q_s(K) := \frac{|\psi_s(K)|}{\psi_0(K)} \]
+
+						   <img src="https://user-images.githubusercontent.com/26249811/189986944-5fa6a017-aafa-41a5-91f6-73e1af80609c.png" alt="playful" style="height: 180px; width:850px; margin: -150px 0px -100px 0px; background: transparent;"><br>
+
+						   <!--<span style="color: #FED650; font-size:75%">Mickel et al., <em>J. Chem. Phys.</em>, <b>138 2013</b> </span>-->
 					</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Understanding Separation</h2>
-						<div class="r-stack">
-							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
-								<img src="assets/hdiff_inset.svg" width="650">
-							</p>
-							<P style="padding: 0.0em; margin: 50px 0px 0px 500px">
-								\[\gamma/\mu \sim h_0/(2\mu)\partial_x\gamma \\
-								h_0 \sim \gamma/(2\partial_x\gamma)\\
-								\tau_s^{2/3} \sim \gamma/(2\partial_x\gamma)\\
-								\tau_s \sim (\partial_x\gamma)^{-3/2}\]
-							</P>
-						</div>
-						<p><span style="color: #FED650; font-size:50%">S. Zitz et al., <em>arXiv</em>, <b>2022</b> </span></p>
+					<section>
+						<h2>Morphologies</h2>
+						<p>
+							<img src="https://user-images.githubusercontent.com/26249811/189354616-722f541e-b419-4f6d-9366-593e2f0aeca5.png" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
+						</p>
+						<p>
+							<span style="display: inline-block;" class="fragment fade-right">\[\Gamma = \frac{v_{\theta}}{U_{\theta}}, \quad U_{\theta} = \frac{\gamma\Theta^3}{9\mu}\] </span>
+						</p>
 					</section>
 				</section>
 				
