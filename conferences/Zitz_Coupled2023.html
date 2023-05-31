@@ -28,9 +28,10 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+				<!-- Titel slide -->
 				<section>
 					<a href="https://jugit.fz-juelich.de/compflu/swalbe.jl">
-						<img src="assets/BC_random_single_faces_cut_LT_065.png" alt="first figure" style="height: 260px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+						<img src="assets/titleIMG_coupled2023.svg" alt="first figure" style="height: 360px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
 					</a>
 					<h3>Buoyancy driven circulation in electrolysis cells</h3>
                     <p style="font-size:28px; "> Two-phase flows with sharp interfaces and complex boundary conditions </p>
@@ -38,24 +39,13 @@
 						<small><a href="https://forskning.ruc.dk/en/persons/zitz">Stefan Zitz*</a>, <a href="https://forskning.ruc.dk/da/persons/missios">Konstantinos Missios</a>, <a href="https://www.linkedin.com/in/casperschyttehemmingsen/?originalSubdomain=dk">Casper S. Hemmingsen</a>, <a href="https://www.linkedin.com/in/kenny-krogh-nielsen-4b51423/">Kenny K. Nielsen</a>,   and <a href="https://forskning.ruc.dk/da/persons/johan">Johan Roenby</a></small>
 					</p>
 				</section>
-
 				<section>
-                    <!--<section data-auto-animate data-auto-animate-unmatched="fade">
-                        <h2>Coalescence</h2>
-                        <p>
-                            <video src="assets/coalescence.mp4" data-autoplay controls loop></video>
-                        </p>
-                        <span style="color: #FED650; font-size:50%">T. Sykes et al., <em>PRF</em>, <b>5(2) 2020</b> </span>
-                    </section>
-                    <section data-auto-animate data-auto-animate-unmatched="fade">
-                        <h2>Non-Coalescence</h2>
-                        <p>
-                            <video src="assets/SupplB_delayed_coalescence.mp4" data-autoplay controls loop></video>
-                        </p>
-                        <span style="color: #FED650; font-size:50%">R. Borcia et al., <em>Eur Phys J E Soft</em>, <b>34(3) 2011</b> </span>
-                    </section>-->
+					<!-- 
+						First slide
+						Aim of industrial partner
+					 -->
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-                        <h2>Aim Industrial Partner</h2>
+                	    <h2>Stiesdal's aim</h2>
 						<div class="r-stack">
 							<p style="padding: 0.0em; margin: 50px -100px 0px -500px">
 								<img src="assets/Stiesdal_hydro_1.jpg" alt="Stiesdal_1" style="height: 360px; margin: 0 auto 4rem auto; background: transparent;">
@@ -64,84 +54,143 @@
 								<img src="assets/Stiesdal_hydro_2.PNG" alt="Stiesdal_1" style="height: 260px; margin: 0 auto 4rem auto; background: transparent;">
 							</p>
 						</div>
-                        </p>
-                        <span style="color: #FED650; font-size:50%">https://www.stiesdal.com/hydrogen/ </span>
-                    </section>
-				</section>
+                	    </p>
+                	    <span style="color: #FED650; font-size:50%">https://www.stiesdal.com/hydrogen/ </span>
+                	</section>
 
-				<section data-auto-animate data-auto-animate-unmatched="fade">
-					<h2>Our Aim</h2>
-					<div class="r-stack">
-						<p style="padding: 0.0em; margin: 50px -100px 0px -500px">
-							<img src="assets/Stiesdal_hydro_1.jpg" alt="Stiesdal_1" style="height: 360px; margin: 0 auto 4rem auto; background: transparent;">
-						</p>
-						<p style="padding: 0.0em; margin: 50px 50px 0px 500px">
-							<img src="assets/Stiesdal_hydro_2.PNG" alt="Stiesdal_1" style="height: 260px; margin: 0 auto 4rem auto; background: transparent;">
-						</p>
-					</div>
-					</p>
-					<span style="color: #FED650; font-size:50%">https://www.stiesdal.com/hydrogen/ </span>
+					<!-- 
+						Second slide
+						Our aim and what we are planning to do
+						Running simulations	
+					-->
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Our aim</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
+								<img src="assets/finer_alpha_200x200_1_5sec.png" alt="Case_setup" style="height: 500px; margin: 0; background: transparent;">
+							</p>
+							<p style="padding: 0.0em; margin: 0px 0px 0px 0px">
+								<ul style="padding: 0.0em; margin: 0px 0px 0px 480px">
+									<li>Setup a <em>simple</em> simulation</li>
+									<ul>
+										<li>With the finite volume method</li>
+										<li>And volume of fluid (VOF)</li>
+										<li>In <a href="https://www.openfoam.com/">OpenFOAM</a></li>
+									</ul>
+									<li>Exploration of the parameter space</li>
+									<li><em>Help</em> Stiesdal</li>
+								</ul>
+							</p>
+						</div>
+					</section>
 				</section>
-			</section>
 
 				<section>
+					<!-- 
+						Third slide
+						Using OpenFOAM to solve the Navier-Stokes equations
+						Discuss various terms and hint Johans and Konstantinos presentation
+					-->
                 	<section data-auto-animate data-auto-animate-unmatched="fade">
-                	    <h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+                	    <h2><a href="https://www.openfoam.com">OpenFOAM</a></h2>
                 	    <p>
-                	        <blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
-                	            &ldquo;Weeks of coding have saved me hours of thinking.&rdquo;
+                	        <blockquote cite="https://www.openfoam.com">
+                	            &ldquo;OpenFOAM is the free, open source CFD software developed primarily by OpenCFD Ltd since 2004.&rdquo;
                 	        </blockquote>
                 	    </p>
                 	    <p>
-                	        \[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0\\ 
-                	            \mathbf{u} \approx \frac{1}{\nu \alpha(h)}\left(-gh \nabla h -\frac{1}{\rho_0}h\nabla p + \color{tomato}{\mathbf{F}}\right) \\
-                	            \partial_t h \approx \nabla \cdot \left(\frac{h^3}{3\mu}\nabla \color{tomato}{p}\right)\]
-                	        <span style="color: #FED650; font-size:50%">S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b>, S. Zitz et al., <em>PRE</em>, <b>100(3) 2019</b></span>
+                	        \[\frac{\partial\rho}{\partial t} + \nabla \cdot (\rho \mathbf{u})  = 0\\ 
+                	            \rho\frac{D\mathbf{u}}{D t} = -\nabla p + \nabla\cdot\hat{\tau} + \rho\mathbf{g} \]
+                	        <span style="color: #FED650; font-size:50%">C. Navier, <em> Mém. Acad. sci. Inst. Fr.</em>, <b>6 1823</b>, G. Stokes, <em>Trans. Cambridge Philos. Soc.</em>, <b>7 1842</b></span>
                 	    </p>
-					
                 	</section>
+
+					<!-- 
+						Fourth slide
+						OpenFOAM for two phases with surface tension force
+						Disregard electrochemisty and reaction dynamics
+					-->
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
-						<p>
-                	        <blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
-                	            &ldquo;Ideas can be implemented and tested quickly with a two dimensional system....&rdquo;
-                	        </blockquote>
-                	    </p>
-						<p>\[F_{\gamma} = \frac{3}{2}\partial_x\gamma\]</p>
-                	    <p>\[p = \gamma\partial_x^2 h + \Pi(h)\]</p>
-						<p>\[\Pi(h) = K(\theta,\gamma)f(h)\]</p>
-						<p><span style="color: #FED650; font-size:50%">S. Zitz et al., <em>arXiv</em>, <b>2022</b> </span></p>
+						<h2><a href="https://www.openfoam.com">OpenFOAM</a></h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -700px">
+                	        	<img src="assets/Surface_tension-yeti.jpg" alt="Case_setup" style="height: 360px; margin: 0; background: transparent;">
+                	    	</p>
+						<p style="padding: 0.0em; margin: 0px 0px 0px 320px">
+							$$\begin{align}
+								\rho\frac{D\mathbf{u}}{D t} &= -\nabla p + \nabla\cdot\hat{\tau} + \rho\mathbf{g} + \mathbf{f}_{\sigma} \\
+								\mathbf{f}_{\sigma} &= \sigma\kappa\mathbf{n}\delta_S \\
+								\frac{\partial\alpha}{\partial t} &+ \mathbf{u}\cdot\nabla\alpha = 0
+							\end{align}$$
+						</p>
+						<p style="padding: 0.0em; margin: 400px 0px 0px 0px"><span style="color: #FED650; font-size:50%">J. Roenby et al., <em>R. Soc. Open Sci.</em>, <b>3(11) 2016</b>, S. Popinet , <em>Annu. Rev. Fluid Mech.</em>, <b>50(1) 2018</b> </span></p>
+					</section>
+
+					<!-- 
+						Fifth slide
+						OpenFOAM active boundary condition for bubble injection
+						Injection rate == bubble distribution
+					-->
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://www.openfoam.com">OpenFOAM</a></h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -700px">
+                	        	<img src="assets/Impro_droplet_sizes_2.svg" alt="Case_setup" style="height: 360px; margin: 0;">
+                	    	</p>
+						<p style="padding: 0.0em; margin: 0px 0px 0px 320px">
+							Active boundary condition
+							<ul style="padding: 0.0em; margin: 50px 0px 0px 480px">
+								<li>Cells are nucleation sites</li>
+								<li>Flow transports bubbles</li>
+								<li>Bubbles are allowed to coalesce</li>
+								<li>Activity - different size distributions ($\Gamma$)</li>
+							</ul>
+						</p>
 					</section>
 				</section>
                 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Scaling laws</h2>
-						<p>
-							<video src="assets/Borcia_Bestehorn_coal.mp4" data-autoplay controls loop></video>
-						</p>
-						<p><span style="color: #FED650; font-size:50%">R. Borcia & M. Bestehorn, <em>Langmuir</em>, <b>29(14) 2013</b> </span></p>
+						<h2><a href="https://www.mdpi.com/1996-1073/13/13/3394">State of the Art</a></h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
+								<img src="assets/2d_simple_1.webp" style="height: 460px; margin: 0; background: transparent;">
+							</p>
+							<p style="padding: 0.0em; margin: 40px 0px 0px 300px">
+								<img src="assets/simple_2d_velprofiles.png" style="width: 760px; margin: 0; background: transparent;">
+							</p>
+						</div>
+						<p><span style="color: #FED650; font-size:50%">D. Le Bideau et al., <em>Energies</em>, <b>13(13) 2020</b> </span></p>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Scaling laws</h2>
+						<h2><a href="https://www.sciencedirect.com/science/article/pii/S0360319923012247">State of the Art</a></h2>
 						<div class="r-stack">
 							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
-								<img src="assets/bridge_evo_gamma0.svg" width="600" height="400">
+								<img src="assets/analytical_model_1.jpg" style="width: 420px; margin: 0; background: transparent;">
 							</p>
-							<P style="padding: 0.0em; margin: 0px 0px 0px 500px">
-								\[ p_c \sim \gamma\kappa \\
-								p_i \sim \rho (h_0/t)^2 \\
-								h_0 \sim t^{2/3} \]
-								<span class="fragment">\[\tau = \sqrt{\rho R_0^3/\gamma}\]</span>
-							</P>
+							<p style="padding: 0.0em; margin: 40px 0px 0px 500px">
+								<img src="assets/analytical_model_2.jpg" style="width: 860px; margin: 0; background: transparent;">
+							</p>
 						</div>
-						<p><span style="color: #FED650; font-size:50%">A. Eddi et al., <em>PRL</em>, <b>111(14) 2013</b> </span></p>
+						<p><span style="color: #FED650; font-size:50%">A. Rajora & J.W. Haverkort, <em>Int. J. Hydrog. Energy</em>, <b>2023</b> </span></p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://www.sciencedirect.com/science/article/pii/S000925092200865X">State of the Art</a></h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
+								<img src="assets/One_bubble_1.jpg" style="width: 460px; margin: 0; background: transparent;">
+							</p>
+							<p style="padding: 0.0em; margin: 50px 0px 0px 500px">
+								<img src="assets/One_bubble_2.jpg" style="width: 860px; margin: 0; background: transparent;">
+							</p>
+						</div>
+						<p><span style="color: #FED650; font-size:50%">F. Khalighi et al., <em>Chem. Eng. Sci.</em>, <b>267 2023</b> </span></p>
 					</section>
 				</section>
 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Marangoni flows</h2>
+						<h2>Circular flows</h2>
 						<div class="r-stack">
 							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
 								<img src="assets/gammas.svg" width="600" height="400">
@@ -155,52 +204,41 @@
 						</div>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Marangoni flows</h2>
+						<h2>Gravity</h2>
 						<video src="assets/Borcia_Bestehorn_noncoal.mp4" data-autoplay controls loop></video>
 						<p><span style="color: #FED650; font-size:50%">R. Borcia & M. Bestehorn, <em>Langmuir</em>, <b>29(14) 2013</b> </span></p>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Maragoni flows</h2>
+						<h2>Activity</h2>
 						<img src="assets/h_final_three.svg" class="r-stretch">
 					</section>
 
 				</section>
 
-				<section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Understanding Separation</h2>
-						<div class="r-stack">
-							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
-								<img src="assets/bridge_evo_all2.svg" width="500">
-							</p>
-							<P style="padding: 0.0em; margin: 0px 0px 0px 400px">
-								<img src="assets/Marangoni_coalescence.png" width="500">
-							</P>
-						</div>
-					</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Understanding Separation</h2>
-						<div class="r-stack">
-							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
-								<img src="assets/Marangoni_coalescence.png" width="650">
-							</p>
-							<P style="padding: 0.0em; margin: 50px 0px 0px 500px">
-								\[\gamma/\mu \sim h_0/(2\mu)\partial_x\gamma \\
-								h_0 \sim 2\gamma/(\partial_x\gamma)\\
-								\tau_s^{2/3} \sim \gamma/(2\partial_x\gamma)\\
-								\tau_s \sim (\partial_x\gamma)^{-3/2}\]
-							</P>
-						</div>
-						<p><span style="color: #FED650; font-size:50%">A. Edwards et al., <em>Sci. Adv.</em>, <b>2(9) 2016</b>, S. Zitz et al., <em>arXiv</em>, <b>2022</b> </span></p>
-					</section>
-				</section>
 				
+				<section data-auto-animate data-auto-animate-unmatched="fade">
+					<h2><a href="https://www.safetysign.com">construction sites</a></h2>
+					<div class="r-stack">
+						<p style="padding: 0.0em; margin: 0px 0px 0px -700px">
+							<img src="assets/Construction_site.jpg" width="450">
+						</p>
+						<P style="padding: 0.0em; margin: 55px 0px 0px 400px">
+							<ul style="padding: 0.0em; margin: 85px 0px 0px 420px">
+								<li>Electrostatics</li>
+								<li>Temperature</li>
+								<li>Bubble sizes limited by mesh</li>
+								<li>Comparison with data from Stiesdal</li>
+							</ul>
+						</P>
+					</div>
+				</section>
+
 				<section>
 					<h2>Conclusion</h2>
 					<ul>
-						<li>Simulations of coalescence</li>
-						<li>Surface tension gradient \(\neq\) surface tension contrast</li>
-						<li>Separation time \(\tau_s \sim (\partial_x\gamma)^{-3/2}\)</li>
+						<li>CFD simulation of a simple electrolizer cell</li>
+						<li>Circular flow due to bubbles</li>
+						<li>Critical angle for circulation $0^{\circ}$ (incompressible)</li>
 					</ul>
 					<br>
 					<br>
