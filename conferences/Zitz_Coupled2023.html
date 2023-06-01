@@ -119,10 +119,10 @@
                 	    	</p>
 						<p style="padding: 0.0em; margin: -40px 0px 0px 320px">
 							$$\begin{align}
-							\frac{\partial}{\partial t}(\rho\mathbf{u}) &+ \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = -\nabla p + \nabla\cdot\hat{\tau}\\ &+ \rho\mathbf{g} + \mathbf{f}_{\sigma} \\
+								\nabla\cdot\mathbf{u} &= 0 \\
+								\frac{\partial}{\partial t}(\rho\mathbf{u}) &+ \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = -\nabla p + \nabla\cdot\hat{\tau}\\ &+ \rho\mathbf{g} + \mathbf{f}_{\sigma} \\
 								\mathbf{f}_{\sigma} &= \sigma\kappa\mathbf{n}\delta_S \\
-								\frac{\partial\alpha}{\partial t} &+ \nabla \cdot (\alpha \mathbf{u})  = 0 \\
-								\nabla\cdot\mathbf{u} &= 0
+								\frac{\partial\alpha}{\partial t} &+ \nabla \cdot (\alpha \mathbf{u})  = 0
 							\end{align}$$
 						</p>
 						<p style="padding: 0.0em; margin: 400px 0px 0px 0px"><span style="color: #FED650; font-size:50%">J. Roenby et al., <em>R. Soc. Open Sci.</em>, <b>3(11) 2016</b>, S. Popinet , <em>Annu. Rev. Fluid Mech.</em>, <b>50(1) 2018</b> </span></p>
@@ -132,6 +132,7 @@
 						Fifth slide
 						OpenFOAM active boundary condition for bubble injection
 						Injection rate == bubble distribution
+						Needs more love
 					-->
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2><a href="https://www.openfoam.com">OpenFOAM</a></h2>
@@ -153,39 +154,39 @@
                 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://www.mdpi.com/1996-1073/13/13/3394">State of the Art</a></h2>
-						<div class="r-stack">
-							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
-								<img src="assets/2d_simple_1.webp" style="height: 460px; margin: 0; background: transparent;">
-							</p>
-							<p style="padding: 0.0em; margin: 40px 0px 0px 300px">
-								<img src="assets/simple_2d_velprofiles.png" style="width: 760px; margin: 0; background: transparent;">
-							</p>
-						</div>
-						<p><span style="color: #FED650; font-size:50%">D. Le Bideau et al., <em>Energies</em>, <b>13(13) 2020</b> </span></p>
-					</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://www.sciencedirect.com/science/article/pii/S0360319923012247">State of the Art</a></h2>
+						<h2><a href="https://www.sciencedirect.com/science/article/pii/S0360319923012247">Related Research</a></h2>
 						<div class="r-stack">
 							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
-								<img src="assets/analytical_model_1.jpg" style="width: 420px; margin: 0; background: transparent;">
+								<img src="assets/analytical_model_1.jpg" style="width: 320px; margin: 0; background: transparent;">
 							</p>
-							<p style="padding: 0.0em; margin: 40px 0px 0px 500px">
-								<img src="assets/analytical_model_2.jpg" style="width: 860px; margin: 0; background: transparent;">
+							<p style="padding: 0.0em; margin: 10px 0px 0px 500px">
+								<img src="assets/analytical_model_2.jpg" style="width: 960px; margin: 0; background: transparent;">
 							</p>
 						</div>
+						<p>
+							<ul>
+								<li>Derivation of powerlaws</li>
+								<li>Plume profiles</li>
+							</ul>
+						</p>
 						<p><span style="color: #FED650; font-size:50%">A. Rajora & J.W. Haverkort, <em>Int. J. Hydrog. Energy</em>, <b>2023</b> </span></p>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://www.sciencedirect.com/science/article/pii/S000925092200865X">State of the Art</a></h2>
+						<h2><a href="https://www.sciencedirect.com/science/article/pii/S000925092200865X">Related Research</a></h2>
 						<div class="r-stack">
-							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -700px">
 								<img src="assets/One_bubble_1.jpg" style="width: 460px; margin: 0; background: transparent;">
 							</p>
-							<p style="padding: 0.0em; margin: 50px 0px 0px 500px">
-								<img src="assets/One_bubble_2.jpg" style="width: 860px; margin: 0; background: transparent;">
+							<p style="padding: 0.0em; margin: 30px 0px 0px 380px">
+								<img src="assets/One_bubble_2.jpg" style="height: 280px; margin: 0; background: transparent;">
 							</p>
 						</div>
+						<p>
+							<ul>
+								<li>Immersed boundary method</li>
+								<li>Bubble growth and flow fields</li>
+							</ul>
+						</p>
 						<p><span style="color: #FED650; font-size:50%">F. Khalighi et al., <em>Chem. Eng. Sci.</em>, <b>267 2023</b> </span></p>
 					</section>
 				</section>
@@ -233,11 +234,10 @@
 							<img src="assets/Construction_site.jpg" width="450">
 						</p>
 						<P style="padding: 0.0em; margin: 55px 0px 0px 400px">
-							<ul style="padding: 0.0em; margin: 85px 0px 0px 420px">
+							<ul style="padding: 0.0em; margin: 120px 0px 0px 420px">
 								<li>Electrostatics</li>
 								<li>Temperature</li>
 								<li>Bubble sizes limited by mesh</li>
-								<li>Comparison with data from Stiesdal</li>
 							</ul>
 						</P>
 					</div>
