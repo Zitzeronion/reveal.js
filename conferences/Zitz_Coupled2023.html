@@ -99,8 +99,9 @@
                 	        </blockquote>
                 	    </p>
                 	    <p>
-                	        \[\frac{\partial\rho}{\partial t} + \nabla \cdot (\rho \mathbf{u})  = 0\\ 
-                	            \rho\frac{D\mathbf{u}}{D t} = -\nabla p + \nabla\cdot\hat{\tau} + \rho\mathbf{g} \]
+                	        $$\frac{\partial\rho}{\partial t} + \nabla \cdot (\rho \mathbf{u})  = 0\\ 
+                	            \frac{\partial}{\partial t}(\rho\mathbf{u}) + \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = -\nabla p + \nabla\cdot\hat{\tau} + \rho\mathbf{g} + \mathbf{f} \\
+								\nabla\cdot\mathbf{u} = 0 $$
                 	        <span style="color: #FED650; font-size:50%">C. Navier, <em> Mém. Acad. sci. Inst. Fr.</em>, <b>6 1823</b>, G. Stokes, <em>Trans. Cambridge Philos. Soc.</em>, <b>7 1842</b></span>
                 	    </p>
                 	</section>
@@ -113,14 +114,15 @@
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2><a href="https://www.openfoam.com">OpenFOAM</a></h2>
 						<div class="r-stack">
-							<p style="padding: 0.0em; margin: 0px 0px 0px -700px">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -900px">
                 	        	<img src="assets/Surface_tension-yeti.jpg" alt="Case_setup" style="height: 360px; margin: 0; background: transparent;">
                 	    	</p>
-						<p style="padding: 0.0em; margin: 0px 0px 0px 320px">
+						<p style="padding: 0.0em; margin: -40px 0px 0px 320px">
 							$$\begin{align}
-								\rho\frac{D\mathbf{u}}{D t} &= -\nabla p + \nabla\cdot\hat{\tau} + \rho\mathbf{g} + \mathbf{f}_{\sigma} \\
+							\frac{\partial}{\partial t}(\rho\mathbf{u}) &+ \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = -\nabla p + \nabla\cdot\hat{\tau}\\ &+ \rho\mathbf{g} + \mathbf{f}_{\sigma} \\
 								\mathbf{f}_{\sigma} &= \sigma\kappa\mathbf{n}\delta_S \\
-								\frac{\partial\alpha}{\partial t} &+ \mathbf{u}\cdot\nabla\alpha = 0
+								\frac{\partial\alpha}{\partial t} &+ \nabla \cdot (\alpha \mathbf{u})  = 0 \\
+								\nabla\cdot\mathbf{u} &= 0
 							\end{align}$$
 						</p>
 						<p style="padding: 0.0em; margin: 400px 0px 0px 0px"><span style="color: #FED650; font-size:50%">J. Roenby et al., <em>R. Soc. Open Sci.</em>, <b>3(11) 2016</b>, S. Popinet , <em>Annu. Rev. Fluid Mech.</em>, <b>50(1) 2018</b> </span></p>
@@ -139,7 +141,7 @@
                 	    	</p>
 						<p style="padding: 0.0em; margin: 0px 0px 0px 320px">
 							Active boundary condition
-							<ul style="padding: 0.0em; margin: 50px 0px 0px 480px">
+							<ul style="padding: 0.0em; margin: 60px 0px 0px 480px">
 								<li>Cells are nucleation sites</li>
 								<li>Flow transports bubbles</li>
 								<li>Bubbles are allowed to coalesce</li>
@@ -191,15 +193,34 @@
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Circular flows</h2>
+						<p>
+							<ul>
+								<li>Incompressible flow</li>
+								<li>Velocity depends on $\mathbf{g}$</li>
+								<li>Always circulation, $\theta_{c} = 0^{\circ}$</li>
+							</ul>
+						</p>
 						
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Gravity</h2>
-						
+						<p>
+							<ul>
+								<li>Incompressible flow</li>
+								<li>Velocity depends on $\mathbf{g}$</li>
+								<li>Always circulation, $\theta_{c} = 0^{\circ}$</li>
+							</ul>
+						</p>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Activity</h2>
-						
+						<p>
+							<ul>
+								<li>Incompressible flow</li>
+								<li>Velocity depends on $\mathbf{g}$</li>
+								<li>Always circulation, $\theta_{c} = 0^{\circ}$</li>
+							</ul>
+						</p>
 					</section>
 
 				</section>
