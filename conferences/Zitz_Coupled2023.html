@@ -138,15 +138,29 @@
 						<h2><a href="https://www.openfoam.com">OpenFOAM</a></h2>
 						<div class="r-stack">
 							<p style="padding: 0.0em; margin: 0px 0px 0px -700px">
-                	        	<img src="assets/Impro_droplet_sizes_2.svg" alt="Case_setup" style="height: 360px; margin: 0;">
+                	        	<img src="assets/GammaLow.png" alt="Case_setup" style="height: 360px; margin: 0;">
                 	    	</p>
 						<p style="padding: 0.0em; margin: 0px 0px 0px 320px">
 							Active boundary condition
 							<ul style="padding: 0.0em; margin: 60px 0px 0px 480px">
 								<li>Cells are nucleation sites</li>
 								<li>Flow transports bubbles</li>
-								<li>Bubbles are allowed to coalesce</li>
-								<li>Activity - different size distributions ($\Gamma$)</li>
+								<li>Activity ($\Gamma$) - different size distributions</li>
+							</ul>
+						</p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://www.openfoam.com">OpenFOAM</a></h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -700px">
+                	        	<img src="assets/GammaLarge.png" alt="Case_setup" style="height: 360px; margin: 0;">
+                	    	</p>
+						<p style="padding: 0.0em; margin: 0px 0px 0px 320px">
+							Active boundary condition
+							<ul style="padding: 0.0em; margin: 60px 0px 0px 480px">
+								<li>Cells are nucleation sites</li>
+								<li>Flow transports bubbles</li>
+								<li>Activity ($\Gamma$) - different size distributions</li>
 							</ul>
 						</p>
 					</section>
@@ -171,6 +185,7 @@
 						</p>
 						<p><span style="color: #FED650; font-size:50%">A. Rajora & J.W. Haverkort, <em>Int. J. Hydrog. Energy</em>, <b>2023</b> </span></p>
 					</section>
+					<!---
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2><a href="https://www.sciencedirect.com/science/article/pii/S000925092200865X">Related Research</a></h2>
 						<div class="r-stack">
@@ -189,39 +204,46 @@
 						</p>
 						<p><span style="color: #FED650; font-size:50%">F. Khalighi et al., <em>Chem. Eng. Sci.</em>, <b>267 2023</b> </span></p>
 					</section>
+					--->
 				</section>
 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Circular flows</h2>
 						<p>
-							<ul>
-								<li>Incompressible flow</li>
-								<li>Velocity depends on $\mathbf{g}$</li>
-								<li>Always circulation, $\theta_{c} = 0^{\circ}$</li>
-							</ul>
+							<video src="assets/case_1.mp4" controls loop></video>
 						</p>
 						
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Gravity</h2>
 						<p>
-							<ul>
-								<li>Incompressible flow</li>
-								<li>Velocity depends on $\mathbf{g}$</li>
-								<li>Always circulation, $\theta_{c} = 0^{\circ}$</li>
-							</ul>
+							<img src="assets/low_inc_flux.svg" style="width: 460px; margin: 0; background: transparent;">
 						</p>
+						<ul>
+							<li>Inclination angle $\theta$ breaks symmetry</li>
+							<li>Small inclinations: bubbles in both arms</li>
+						</ul>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Gravity</h2>
+						<p>
+							<img src="assets/large_inc_flux.svg" style="width: 460px; margin: 0; background: transparent;">
+						</p>
+						<ul>
+							<li>Inclination increases "downstream" flux</li>
+							<li>Large $\theta$ promotes bubble trapping</li>
+						</ul>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Activity</h2>
 						<p>
-							<ul>
-								<li>Incompressible flow</li>
-								<li>Velocity depends on $\mathbf{g}$</li>
-								<li>Always circulation, $\theta_{c} = 0^{\circ}$</li>
-							</ul>
+							<img src="assets/downstream_fux.svg" style="width: 460px; margin: 0; background: transparent;">
 						</p>
+						<ul>
+							<li>Bubbles coalesce too easy</li>
+							<li>More production = larger fluctuations</li>
+						</ul>
 					</section>
 
 				</section>
@@ -237,6 +259,7 @@
 							<ul style="padding: 0.0em; margin: 120px 0px 0px 420px">
 								<li>Electrostatics</li>
 								<li>Temperature</li>
+								<li>Wettability</li>
 								<li>Bubble sizes limited by mesh</li>
 							</ul>
 						</P>
@@ -248,7 +271,7 @@
 					<ul>
 						<li>CFD simulation of a <em>simple</em> electrolizer cell</li>
 						<li>Circular flow due to bubbles</li>
-						<li>Critical angle for circulation $0^{\circ}$ (incompressible)</li>
+						<li>Critical angle for circulation</li>
 					</ul>
 					<br>
 					<br>
