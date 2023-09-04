@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Buoyancy driven circulation in electrolysis cells</title>
+
+		<meta name="description" content="NIB First Semester presentation">
+		<meta name="author" content="Stefan Zitz">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                	    <h2>Who am I?</h2>
+							<p>
+								Physicist by education with focus on <em>theoretical & computational</em> physics (in Austria)
+							</p>
+							<p>
+								<img src="assets/10052_2016_3942_Fig1_HTML.webp" alt="DSEs" style="height: 320px; margin: -30 auto 4rem auto; background: transparent;">
+							</p>
+                	    <span style="color: #FED650; font-size:50%">Maas & Zitz, <em>EPJC</em>, <b>76(113) 2016</b></span>
+                	</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                	    <h2>Who am I?</h2>
+							<p>
+								Studied thin liquid films with computational fluid dynamics for a PhD (in Germany)
+
+								\[\partial_t h(\mathbf{x},t) = \nabla\cdot(M(h)\nabla p)\]
+							</p>
+							<p>
+								<img src="assets/film_rupture.png" alt="rupture_events" style="height: 240px; margin: -50 auto 4rem auto; background: transparent;">
+							</p>
+                	    <span style="color: #FED650; font-size:50%">Zitz et al., <em>PRE</em>, <b>104 2021</b></span>
+                	</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                	    <h2>Who am I?</h2>
+							<p>
+								More computational fluid dynamics with free interfaces and multiple phases (in Denmark)
+							</p>
+							<p>
+								<img src="assets/spurious_currents.jpg" alt="spurious_currents" style="height: 340px; margin: -50 auto 4rem auto; background: transparent;">
+							</p>
+                	    <span style="color: #FED650; font-size:50%">Abadie et al., <em>J. Comput. Phys.</em>, <b>297 2015</b></span>
+                	</section>
+				</section>
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Project seeds</h2>
+						<p>
+							<em>"A mathematican is a machine for turning coffee into theorems."</em>
+						</p>
+						<ul>
+							<li>Is coffee healthy or not? Which kind of coffee?</li>
+							<li>How sustainable is coffee?</li>
+							<li>Is modern Espresso overengineered?</li>
+							<li>Does Darcy's law hold in an Aeropress?</li>
+						</ul>
+						<p></p>
+						<span style="color: #FED650; font-size:50%">Quote by Alfréd Rényi</span>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				mathjax2: {
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.MathJax2 ]
+			});
+
+		</script>
+
+	</body>
+</html>

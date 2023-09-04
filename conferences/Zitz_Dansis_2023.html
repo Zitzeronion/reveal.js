@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Lattice Boltzmann in the wild</title>
+
+		<meta name="description" content="Lattice Boltzmann in the wild">
+		<meta name="author" content="Stefan Zitz">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<a href="https://jugit.fz-juelich.de/compflu/swalbe.jl">
+						<img src="assets/title_venice.svg" alt="first figure" style="height: 360px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h3>To coalesce or not to coalesce</h3>
+                    <h4>Understanding sessile droplets subject to surface tension gradients</h4>
+					<p>
+						<small><a href="https://forskning.ruc.dk/en/persons/zitz">Stefan Zitz*</a>, <a href="https://www.hi-ern.de/profile/richter_t">Tilman Richter</a>, <a href="https://forskning.ruc.dk/da/persons/missios">Konstantinos Missios</a>  and <a href="https://forskning.ruc.dk/da/persons/johan">Johan Roenby</a></small>
+					</p>
+				</section>
+
+				<section>
+                    <!--<section data-auto-animate data-auto-animate-unmatched="fade">
+                        <h2>Coalescence</h2>
+                        <p>
+                            <video src="assets/coalescence.mp4" data-autoplay controls loop></video>
+                        </p>
+                        <span style="color: #FED650; font-size:50%">T. Sykes et al., <em>PRF</em>, <b>5(2) 2020</b> </span>
+                    </section>
+                    <section data-auto-animate data-auto-animate-unmatched="fade">
+                        <h2>Non-Coalescence</h2>
+                        <p>
+                            <video src="assets/SupplB_delayed_coalescence.mp4" data-autoplay controls loop></video>
+                        </p>
+                        <span style="color: #FED650; font-size:50%">R. Borcia et al., <em>Eur Phys J E Soft</em>, <b>34(3) 2011</b> </span>
+                    </section>-->
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                        <h2>One and one is one or two</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 50px -100px 0px -500px">
+								<video src="assets/coalescence.mp4" data-autoplay controls loop></video>
+							</p>
+							<p style="padding: 0.0em; margin: 50px 50px 0px 500px">
+								<video src="assets/SupplB_delayed_coalescence.mp4" controls loop></video>
+							</p>
+						</div>
+                        </p>
+                        <span style="color: #FED650; font-size:50%">T. Sykes et al., <em>PRF</em>, <b>5(2) 2020</b>, R. Borcia et al., <em>Eur Phys J E Soft</em>, <b>34(3) 2011</b> </span>
+                    </section>
+				</section>
+
+				<section>
+                	<section data-auto-animate data-auto-animate-unmatched="fade">
+                	    <h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+                	    <p>
+                	        <blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
+                	            &ldquo;Weeks of coding have saved me hours of thinking.&rdquo;
+                	        </blockquote>
+                	    </p>
+                	    <p>
+                	        \[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0\\ 
+                	            \mathbf{u} \approx \frac{1}{\nu \alpha(h)}\left(-gh \nabla h -\frac{1}{\rho_0}h\nabla p + \color{tomato}{\mathbf{F}}\right) \\
+                	            \partial_t h \approx \nabla \cdot \left(\frac{h^3}{3\mu}\nabla \color{tomato}{p}\right)\]
+                	        <span style="color: #FED650; font-size:50%">S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b>, S. Zitz et al., <em>PRE</em>, <b>100(3) 2019</b></span>
+                	    </p>
+					
+                	</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+						<p>
+                	        <blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
+                	            &ldquo;Ideas can be implemented and tested quickly with a two dimensional system....&rdquo;
+                	        </blockquote>
+                	    </p>
+						<p>\[F_{\gamma} = \frac{3}{2}\partial_x\gamma\]</p>
+                	    <p>\[p = \gamma\partial_x^2 h + \Pi(h)\]</p>
+						<p>\[\Pi(h) = K(\theta,\gamma)f(h)\]</p>
+						<p><span style="color: #FED650; font-size:50%">S. Zitz et al., <em>arXiv</em>, <b>2022</b> </span></p>
+					</section>
+				</section>
+                
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Scaling laws</h2>
+						<p>
+							<video src="assets/Borcia_Bestehorn_coal.mp4" data-autoplay controls loop></video>
+						</p>
+						<p><span style="color: #FED650; font-size:50%">R. Borcia & M. Bestehorn, <em>Langmuir</em>, <b>29(14) 2013</b> </span></p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Scaling laws</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
+								<img src="assets/bridge_evo_gamma0.svg" width="600" height="400">
+							</p>
+							<P style="padding: 0.0em; margin: 0px 0px 0px 500px">
+								\[ p_c \sim \gamma\kappa \\
+								p_i \sim \rho (h_0/t)^2 \\
+								h_0 \sim t^{2/3} \]
+								<span class="fragment">\[\tau = \sqrt{\rho R_0^3/\gamma}\]</span>
+							</P>
+						</div>
+						<p><span style="color: #FED650; font-size:50%">A. Eddi et al., <em>PRL</em>, <b>111(14) 2013</b> </span></p>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Marangoni flows</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
+								<img src="assets/gammas.svg" width="600" height="400">
+							</p>
+			
+							<ul style="padding: 0.0em; margin: 80px 0px 0px 620px">
+									<li>Constant value</li>
+									<li>Heaviside - step</li>
+									<li>Smoothed step \(\tanh(x,w)\)</li>
+							</ul>
+						</div>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Marangoni flows</h2>
+						<video src="assets/Borcia_Bestehorn_noncoal.mp4" data-autoplay controls loop></video>
+						<p><span style="color: #FED650; font-size:50%">R. Borcia & M. Bestehorn, <em>Langmuir</em>, <b>29(14) 2013</b> </span></p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Maragoni flows</h2>
+						<img src="assets/h_final_three.svg" class="r-stretch">
+					</section>
+
+				</section>
+
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Understanding Separation</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
+								<img src="assets/bridge_evo_all2.svg" width="500">
+							</p>
+							<P style="padding: 0.0em; margin: 0px 0px 0px 400px">
+								<img src="assets/hdiff_inset.svg" width="500">
+							</P>
+						</div>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Understanding Separation</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
+								<img src="assets/hdiff_inset.svg" width="650">
+							</p>
+							<P style="padding: 0.0em; margin: 50px 0px 0px 500px">
+								\[\gamma/\mu \sim h_0/(2\mu)\partial_x\gamma \\
+								h_0 \sim \gamma/(2\partial_x\gamma)\\
+								\tau_s^{2/3} \sim \gamma/(2\partial_x\gamma)\\
+								\tau_s \sim (\partial_x\gamma)^{-3/2}\]
+							</P>
+						</div>
+						<p><span style="color: #FED650; font-size:50%">S. Zitz et al., <em>arXiv</em>, <b>2022</b> </span></p>
+					</section>
+				</section>
+				
+				<section>
+					<h2>Conclusion</h2>
+					<ul>
+						<li>Simulations of coalescence</li>
+						<li>Surface tension gradient \(\neq\) surface tension contrast</li>
+						<li>Separation time \(\tau_s \sim (\partial_x\gamma)^{-3/2}\)</li>
+					</ul>
+					<br>
+					<br>
+					<span style="color: #ff5555ff; font-size:150%">Thank you!<br> Questions? 🧐 </span>
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				mathjax2: {
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.MathJax2 ]
+			});
+
+		</script>
+
+	</body>
+</html>
