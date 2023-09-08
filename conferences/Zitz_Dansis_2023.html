@@ -108,7 +108,8 @@
 						\[f = f_{0} + \varepsilon f_1 + \varepsilon^2  f_2 + O(\varepsilon^3),\quad \partial_t = \varepsilon\partial_{t_1} + \varepsilon^2\partial_{t_2} + O(\varepsilon^3)  \]
 						with $f_0 \simeq f^{eq}$ and $\varepsilon \approx Kn \approx \frac{Ma}{Re}$, at zero'th order<br>
 						\[\partial_t(\rho\mathbf{u}) + \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = -\nabla p + \mathbf{F}\ \] 
-						at first order we recover Navier-Stokes
+						at first order we recover Navier-Stokes<br>
+						<span style="color: #FED650; font-size:50%"> S. Chapman, T. G. Cowling, <b>1990</b>; D. Enskog,  <b>1917</b></span>	
 					</section>
 					
 				</section>
@@ -117,14 +118,13 @@
                    
 					<section data-auto-animate data-auto-animate-unmatched="fade">
                         <h2>Numerics</h2>
-						<a href="https://link.springer.com/book/10.1007/978-3-319-44649-3"><img src="assets/d2q9_streaming.PNG" width="60%"></img></a>
-						<p>
+						<a href="https://oaktrust.library.tamu.edu/bitstream/handle/1969.1/86068/OBrien.pdf?sequence=1&isAllowed=y"><img src="assets/coll_stream.PNG" width="75%"></img></a>
+					
 							\[f^{\star}_i(\mathbf{x}, t) = f_i(\mathbf{x}, t) -\frac{\Delta t}{\tau}(f_i(\mathbf{x}, t) - f^{eq}(\mathbf{x}, t))\]
-						</p>
-
-						<p>
+					
 							\[f_i(\mathbf{x} + \mathbf{c}_i\Delta t, t + \Delta t ) = f^{\star}_i(\mathbf{x}, t)\]
-						</p>
+		
+						<span style="color: #FED650; font-size:50%">P. O'Brien, <em>A framework for digital watercolor</em>, <b>2008</b></span>
                     </section>
 
 					<section data-auto-animate data-auto-animate-unmatched="fade">
@@ -150,11 +150,13 @@ for cycle = 1:maxT
        fIn(i,:,:) = circshift(fOut(i,:,:), [0,cx(i),cy(i)]);
     end
 					</code></pre>
+					<span style="color: #FED650; font-size:50%">Palabos/Get Started</span>
                     </section>
 
 					<section>
 						<h2>What does it do</h2>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/ZDAO_xSwzU4?si=jrgas838g3fPdhKz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						<iframe width="840" height="473" src="https://www.youtube.com/embed/ZDAO_xSwzU4?si=jrgas838g3fPdhKz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+						<span style="color: #FED650; font-size:50%">Jousef Murad</span>	
 					</section>
 				</section>
 
@@ -177,21 +179,24 @@ for cycle = 1:maxT
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
 						<p>
-							<iframe width="420" height="250" src="https://www.youtube.com/embed/ewVSHU-jzt8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<iframe width="420" height="250" src="https://www.youtube.com/embed/xl57RTFi4oI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<iframe width="420" height="250" src="https://www.youtube.com/embed/QgOgNGkUQK4?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="420" height="250" src="https://www.youtube.com/embed/ewVSHU-jzt8?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="420" height="250" src="https://www.youtube.com/embed/xl57RTFi4oI?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="420" height="250" src="https://www.youtube.com/embed/QgOgNGkUQK4?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</p>
 					</section>
 				</section>
                 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>OpenLB/Palabos</h2>
-						
+						<h2>Palabos</h2>
+						<blockquote cite="https://palabos.unige.ch/">
+							The Palabos library is a framework for general-purpose computational fluid dynamics (CFD), with a kernel based on the lattice Boltzmann (LB) method.
+						</blockquote>
+						<a href="https://palabos.unige.ch/gallery/"><img src="assets/background2_1080.png" width="50%"><img src="assets/vertebroplasty.png" width="50%"></img></a>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>OpenLB/Palabos</h2>
-						
+						<h2>Palabos</h2>
+						<iframe width="840" height="473" src="https://www.youtube.com/embed/xcrMSecJ81Q?si=_teZnmoZKo6rYSbp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					</section>
 				</section>
 
@@ -213,7 +218,8 @@ for cycle = 1:maxT
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Reasons to love</h2>
 						<p>No meshing</p>
-						<a href="https://www.researchgate.net/publication/274637399_Hemodynamic_investigation_of_arteries_using_the_lattice_Boltzmann_method"><img src="assets/dnqm_grids.jpg" width="60%"></img></a>
+						<a href="https://www.researchgate.net/publication/274637399_Hemodynamic_investigation_of_arteries_using_the_lattice_Boltzmann_method"><img src="assets/d2q9d3q27.PNG" width="60%"></img></a>
+						<p><span style="color: #FED650; font-size:50%">L. W., Chen et al., <em>ACM Trans. Graph.</em>, <b>39(4) 2020</b> </span></p>
 					</section>
 
 					<section data-auto-animate data-auto-animate-unmatched="fade">
