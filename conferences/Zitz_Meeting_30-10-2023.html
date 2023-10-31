@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Swalbe.jl</title>
+
+		<meta name="description" content="Lattice Boltzmann in the wild">
+		<meta name="author" content="Stefan Zitz">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+						<a href="https://arxiv.org/abs/2112.09770"><img src="https://user-images.githubusercontent.com/26249811/189327279-44d73c33-e29b-4307-a11e-90d359bed3c7.png" width="70.0%"></img></a><br>
+					<h3>Swalbe.jl</h3>
+                    <h4>A Lattice Boltzmann thin film solver</h4>
+					<p>
+						<small><a href="https://forskning.ruc.dk/en/persons/zitz">Stefan Zitz</a>, <a href="https://ruc.dk/en">Roskilde University</a></small>
+					</p>
+				</section>
+
+				<section data-auto-animate data-auto-animate-unmatched="fade">
+					<h2>CFD at different scales</h2>
+					<a href="https://www.dierk-raabe.com/lattice-boltzmann-model-lbm"><img src="assets/Raabe_scales.PNG" width="70%"></img></a><br>
+					<span style="color: #FED650; font-size:50%">D. Raabe, <em>Modelling Simul. Mater. Sci. Eng.</em>, <b>12 2004</b></span>
+				</section>
+
+				<section>
+					<section>
+						<h2>The Setting</h2> 
+						<a href="https://upload.wikimedia.org/wikipedia/commons/8/82/Simulation_of_gas_for_relaxation_demonstration.gif"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Simulation_of_gas_for_relaxation_demonstration.gif" width="30%"></img></a><br>
+						<span style="color: #FED650; font-size:50%">Wikipedia</span>
+					</section>
+
+					<section>
+						<h2>The Boltzmann equation</h2> 
+						\[\partial_t f + \boldsymbol{\xi}\cdot\nabla f + \frac{\mathbf{F}}{\rho}\cdot\partial_{\boldsymbol{\xi}}f = \Omega(f) \]
+						Evolution equation of a distribution function $f(\mathbf{x},\boldsymbol{\xi}, t)$
+						\[ [f] = \frac{kg~s^3}{m^6}\]
+					
+					<span style="color: #FED650; font-size:50%"><a href="https://link.springer.com/book/10.1007/978-3-319-44649-3">T. Krüger et al., <em>The Lattice Boltzmann Method: Principles and Practice</em>, <b>2016</b></a></span>
+					</section>
+
+					<section>
+						<h2>Moments</h2> 
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
+								\[\rho(\mathbf{x}, t) = \int f(\mathbf{x},\boldsymbol{\xi}, t) \diff^3\xi \\
+								\rho\mathbf{u} = \int \boldsymbol{\xi}f(\mathbf{x},\boldsymbol{\xi}, t) \diff^3\xi \\
+								\rho E = \frac{1}{2}\int |\boldsymbol{\xi}|^2 f(\mathbf{x},\boldsymbol{\xi}, t) \diff^3\xi\]
+							</p>
+							<P style="padding: 0.0em; margin: 0px 0px 0px 600px">
+								\[\int \Omega(f) \diff^3\xi = 0 \\
+								\int \boldsymbol{\xi}\Omega(f) \diff^3\xi = \mathbf{0}\\
+								\int |\boldsymbol{\xi}|^2 \Omega(f) \diff^3\xi = 0\]
+							</P>
+						</div>
+						<span style="color: #FED650; font-size:50%"><a href="https://global.oup.com/academic/product/the-lattice-boltzmann-equation-9780199592357?cc=dk&lang=en&">S. Succi, <em>The Lattice Boltzmann Equation: For Fluid Dynamics and Beyond</em>, <b>2001</b></a></span>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>The Collision operator</h2> 
+						<a href="http://www.sciencecartoonsplus.com/gallery/math/index.php#"><img src="https://www.researchgate.net/profile/Michael-Wade-5/publication/302632920/figure/fig2/AS:751645805789184@1556217733527/Then-a-Miracle-Occurs-Copyrighted-artwork-by-Sydney-Harris-Inc-All-materials-used-with.png" width="40%"></img></a><br>
+
+						<span style="color: #FED650; font-size:50%"> &#169 S. Harris, <b>sciencecartoonsplus.com</b></span>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>The Collision operator</h2> 
+						Dominated by two-body collisions of uncorrelated particles<br>
+						<a href="https://link.springer.com/book/10.1007/978-3-319-44649-3"><img src="https://media.springernature.com/full/springer-static/image/chp%3A10.1007%2F978-3-319-44649-3_1/MediaObjects/315103_1_En_1_Fig5_HTML.gif?as=webp" width="50%"></img></a><br>
+						\[\Omega(f) = -\frac{1}{\tau} (f-f^{eq})\]
+						<p>with $f^{eq}$ is a <em>Maxwell-Boltzmann</em> distribution </p>
+					<span style="color: #FED650; font-size:50%"> <a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.94.511">P.L. Bhatnagar, E.P. Gross, M. Krook, <em>Phys. Rev.</em>, <b>93 (3) 1954</b></a></span>
+					</section>
+
+					<section>
+						<h2>Hydrodynamic equations</h2>
+						\[\partial_t \int f \diff^3\xi + \int\boldsymbol{\xi}\cdot\nabla f \diff^3\xi + \frac{\mathbf{F}}{\rho}\cdot\int\partial_{\boldsymbol{\xi}}f \diff^3\xi = \int\Omega(f)\diff^3\xi \]
+						which is equal to
+						\[\partial_t\rho + \nabla\cdot(\rho\mathbf{u}) = 0\]
+						and for the first moment
+						\[\partial_t(\rho\mathbf{u}) + \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = \nabla\cdot\hat{\sigma} + \mathbf{F}\]	
+						<span style="color: #FED650; font-size:50%"> <a href="https://www.annualreviews.org/doi/abs/10.1146/annurev.fluid.30.1.329">S. Chen, G. D. Doolen, <em>Annu. Rev. Fluid Mech.</em>, <b>30 (1) 1998</b></a></span>	
+					</section>
+
+					<section>
+						<h2>Chapman-Enskog</h2>
+						Stress tensor $\hat{\sigma}$ depends on $f$, but we don't know $f$
+						\[f = f_{0} + \varepsilon f_1 + \varepsilon^2  f_2 + O(\varepsilon^3),\quad \partial_t = \varepsilon\partial_{t_1} + \varepsilon^2\partial_{t_2} + O(\varepsilon^3)  \]
+						with $f_0 \simeq f^{eq}$ and $\varepsilon \approx Kn \approx \frac{Ma}{Re}$, at zero'th order<br>
+						\[\partial_t(\rho\mathbf{u}) + \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = -\nabla p + \mathbf{F}\ \] 
+						at first order we recover Navier-Stokes<br>
+						<span style="color: #FED650; font-size:50%">S. Chapman, T. G. Cowling, <b>1990</b>; D. Enskog,  <b>1917</b></span>	
+					</section>
+					
+				</section>
+
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                        <h2>Numerics</h2>
+						<a href="https://oaktrust.library.tamu.edu/bitstream/handle/1969.1/86068/OBrien.pdf?sequence=1&isAllowed=y"><img src="https://people.ece.cornell.edu/land/courses/ece5760/DE1_SOC/Lattice_Boltzmann/d2q9_streaming.PNG" width="75%"></img></a>
+					
+							\[f^{\star}_i(\mathbf{x}, t) = f_i(\mathbf{x}, t) -\frac{\Delta t}{\tau}(f_i(\mathbf{x}, t) - f^{eq}(\mathbf{x}, t))\]
+					
+							\[f_i(\mathbf{x} + \mathbf{c}_i\Delta t, t + \Delta t ) = f^{\star}_i(\mathbf{x}, t)\]
+		
+						<span style="color: #FED650; font-size:50%"><a href="https://oaktrust.library.tamu.edu/bitstream/handle/1969.1/86068/OBrien.pdf?sequence=1">P. O'Brien, <em>A framework for digital watercolor</em>, <b>2008</b></a></span>
+                    </section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                        <h2>Implementation</h2>
+						<pre><code data-trim data-noescape>
+for cycle = 1:maxT
+
+    % MACROSCOPIC VARIABLES
+    rho = sum(fIn);
+    ux  = reshape ( (cx * reshape(fIn,9,lx*ly)), 1,lx,ly) ./rho;
+    uy  = reshape ( (cy * reshape(fIn,9,lx*ly)), 1,lx,ly) ./rho;
+
+    % COLLISION STEP
+    for i=1:9
+    	cu = 3*(cx(i)*ux+cy(i)*uy);
+    	fEq(i,:,:)  = rho .* t(i) .* ...
+                    ( 1 + cu + 1/2*(cu.*cu)  - 3/2*(ux.^2+uy.^2) );
+       fOut(i,:,:) = fIn(i,:,:) - omega .* (fIn(i,:,:)-fEq(i,:,:));
+    end
+
+	% STREAMING STEP
+    for i=1:9
+       fIn(i,:,:) = circshift(fOut(i,:,:), [0,cx(i),cy(i)]);
+    end
+					</code></pre>
+					<span style="color: #FED650; font-size:50%"><a href="https://palabos.unige.ch/get-started/lattice-boltzmann/lattice-boltzmann-sample-codes-various-other-programming-languages/">Palabos/Get Started</a></span>
+                    </section>
+
+					<section>
+						<h2>What does it do?</h2>
+						<iframe width="840" height="473" src="https://www.youtube.com/embed/ZDAO_xSwzU4?si=jrgas838g3fPdhKz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+						<span style="color: #FED650; font-size:50%">&#169 Jousef Murad</span>	
+					</section>
+				</section>
+
+				<section>
+                	<section data-auto-animate data-auto-animate-unmatched="fade">
+                	    <h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+						<p>
+							<blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
+								&ldquo;Weeks of coding have saved me hours of thinking.&rdquo;
+							</blockquote>
+						</p>
+						<p>
+							\[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0\\ 
+							\mathbf{u} \approx \frac{1}{\nu \alpha(h)}\left(-gh \nabla h -\frac{1}{\rho_0}h\nabla p + \mathbf{F}\right) \\
+							\partial_t h \approx \nabla \cdot \left(\frac{h^3}{3\mu}\nabla p\right)\]
+						</p>
+						<span style="color: #FED650; font-size:50%"><a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.100.033313">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b>,</a> <a href="https://joss.theoj.org/papers/10.21105/joss.04312">S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></a></span>
+					
+                	</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Switchable substrates</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -800px">
+								<a href="https://www.science.org/doi/10.1126/science.288.5471.1624">
+									<img src="https://www.science.org/cms/10.1126/science.288.5471.1624/asset/66e669e5-9012-4cdc-ade8-455af0867a10/assets/graphic/se1708515002.jpeg" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
+								</a>
+							</p>
+							
+							<p style="padding: 0.0em; margin: 20px 0px 0px 420px">
+									\[\partial_t h(\mathbf{x},t) = \nabla\cdot(M(h)\nabla p)\\ \quad p(\mathbf{x},t) = -\gamma\Delta h - \Pi(h) \\
+									\Pi(h) = K(\theta,\gamma)f(h) \\
+									\theta(\mathbf{x},t) = \theta_0 + \delta\theta\left[\sin(\xi_x)\sin(\xi_y)\right]\]
+							</p>
+							
+						</div>
+						<span style="color: #FED650; font-size:50%"><a href="https://www.science.org/doi/10.1126/science.288.5471.1624">K. Ichimura et al., <em>Science</em>, <b>288(5471) 2000</b></a></span>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://arxiv.org/abs/2112.09770">Three regimes</a></h2>
+						<p>
+							<iframe width="420" height="250" src="https://www.youtube.com/embed/ewVSHU-jzt8?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="420" height="250" src="https://www.youtube.com/embed/xl57RTFi4oI?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="420" height="250" src="https://www.youtube.com/embed/QgOgNGkUQK4?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</p>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Marangoni flows</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 50px -100px 0px -500px">
+								<a href="https://journals.aps.org/prfluids/abstract/10.1103/PhysRevFluids.5.023602"><video src="assets/coalescence.mp4" data-autoplay controls loop></video></a>
+							</p>
+							<p style="padding: 0.0em; margin: 50px 50px 0px 500px">
+								<a href="https://link.springer.com/article/10.1140/epje/i2011-11081-0"><video src="assets/SupplB_delayed_coalescence.mp4" controls loop></video></a>
+							</p>
+						</div>
+                        </p>
+                        <span style="color: #FED650; font-size:50%"><a href="https://journals.aps.org/prfluids/abstract/10.1103/PhysRevFluids.5.023602">T. Sykes et al., <em>PRF</em>, <b>5(2) 2020</b>,</a> <a href="https://link.springer.com/article/10.1140/epje/i2011-11081-0">R. Borcia et al., <em>Eur Phys J E Soft</em>, <b>34(3) 2011</b></a></span>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Marangoni flows</h2>
+						<p>
+                	        <blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
+                	            &ldquo;Ideas can be implemented and tested quickly....&rdquo;
+                	        </blockquote>
+                	    </p>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
+								<img src="assets/bridge_evo_all2.svg" width="500">
+							</p>
+							<P style="padding: 0.0em; margin: -20px 0px 0px 500px">
+								\[F_{\gamma} = \frac{3}{2}\partial_x\gamma \\
+								p_c \sim \gamma\kappa \\
+								p_i \sim \rho (h_0/t)^2 \\
+								h_0 \sim t^{2/3}\]
+							</P>
+						</div>
+						<p><span style="color: #FED650; font-size:50%"><a href="https://arxiv.org/abs/2208.09307">S. Zitz et al., <em>arXiv</em>, <b>2022</b> </a></span></p>
+					</section>
+
+					<section>
+						<h2>Thermal fluctuations</h2>
+							<p>
+								<a href="https://journals.aps.org/prl/article/10.1103/PhysRevLett.95.244505"><img src="https://journals.aps.org/prl/article/10.1103/PhysRevLett.95.244505/figures/2/medium" width="550">
+								<img src="https://journals.aps.org/prl/article/10.1103/PhysRevLett.95.244505/figures/3/medium" width="280"></a>
+							</p>
+							<P>
+								\[\partial_t h = \partial_x \left[\frac{h^3}{3\mu}\partial_x p + \sqrt{\frac{2k_BTh^3}{3\mu}}\mathcal{N}\right]\]
+							</P>
+						<span style="color: #FED650; font-size:50%"><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.95.244505">B. Davidovitch et al., <em>PRL</em>, <b>95 2005</b>,</a> <a href="https://link.springer.com/article/10.1007/s10955-006-9028-8">G. Grün et al., <em>J Stat Phys</em>, <b>122 2006</b></a></span>
+					</section>
+					<section>
+						<h2>Thermal fluctuations</h2>
+							<p>
+								<img src="https://journals.aps.org/pre/article/10.1103/PhysRevE.104.034801/figures/4/medium" width="320">
+								<img src="https://journals.aps.org/pre/article/10.1103/PhysRevE.104.034801/figures/10/medium" width="320">
+							</p>
+							<P style="padding: 0.0em; margin: -30px 0px 0px 0px">
+								\[u \approx -\frac{h}{\mu \alpha_{\delta}(h)}\partial_x p + \frac{\rho_0}{\mu \alpha_{\delta}(h)}F_{\text{fluc}} \\
+								F_{\text{fluc}} = \frac{1}{\rho_0} \sqrt{2 k_B T \mu \alpha_{\delta}(h)}\mathcal{N}\]
+							</P>
+						<span style="color: #FED650; font-size:50%"><a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801">S. Zitz et al., <em>PRE</em>, <b>104 2021</b></a></span>
+					</section>
+				</section>
+				
+				<section>
+					<h2>Conclusion</h2>
+					<blockquote cite="">
+						&ldquo;If the only tool you have is a hammer, it is tempting to treat everything as if it were a nail.&rdquo;
+					</blockquote>
+					<ul>
+						<li>Thin liquid films are interesting</li>
+						<li>Lattice Boltzmann is simple and extendable</li>
+						<li>Can be used on CPU and GPU</li>
+					</ul>
+					<br>
+					<br>
+					<span style="color: #ff5555ff; font-size:150%">Thank you! 😊</span>
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				mathjax2: {
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ],
+							diff: '\\mathrm{d}'
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.MathJax2 ]
+			});
+
+		</script>
+
+	</body>
+</html>
