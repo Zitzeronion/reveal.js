@@ -31,6 +31,7 @@
 				<section>
 						<img src="assets/intro_thin_film.svg" width="90%"></img><br>
 					<h3>A lattice Boltzmann perspective on thin liquid films</h3>
+					<h4>CFD at mesoscales</h4>
 					<p>
 						<small>IMFUFA-Seminar, 22.11.2023, Roskilde University</small>
 					</p>
@@ -38,7 +39,7 @@
 
 				<section data-auto-animate data-auto-animate-unmatched="fade">
 					<h2>CFD at different scales</h2>
-					<a href="https://www.dierk-raabe.com/lattice-boltzmann-model-lbm"><img src="https://www.texaspowerfulsmart.com/boltzmann-method/images/8577_0_1-what-lattice-dynamic-kit.jpg" width="70%"></img></a><br>
+					<a href="https://www.dierk-raabe.com/lattice-boltzmann-model-lbm"><img src="assets/Raabe_scales.PNG" width="70%"></img></a><br>
 					<span style="color: #FED650; font-size:50%">D. Raabe, <em>Modelling Simul. Mater. Sci. Eng.</em>, <b>12 2004</b></span>
 				</section>
 
@@ -157,8 +158,35 @@ for cycle = 1:maxT
 						<span style="color: #FED650; font-size:50%">&#169 Jousef Murad</span>	
 					</section>
 				</section>
-
+				<!-- Swalbe slides -->
 				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                	    <h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+						<p>
+							<a href="https://github.com/Zitzeronion/Swalbe.jl"><b>S</b></a>hallow <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>W</b></a>ater <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>L</b></a>attice <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>B</b></a>oltzmann sol<a href="https://github.com/Zitzeronion/Swalbe.jl"><b>E</b></a>r
+						</p>
+						<p>
+							\[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0 \\ 
+							\partial_t (h \mathbf{u}) + \nabla \cdot (h \mathbf{u}\mathbf{u}) = -gh \nabla h +\\ 
+							+  \nu \nabla^2 (h\mathbf{u}) + 2\nu \nabla (\nabla \cdot (h\mathbf{u})) +
+							\mathbf{F}_{tot}\]
+						</p>
+						<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b>; S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></span>
+					
+                	</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+					<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+					<!-- Insert shallow water picture -->
+					<p>
+						Shallow water $\neq$ thin film
+					</p>
+					<p>
+						\[\mathbf{F}_{tot} = \mathbf{F}_{film} + \mathbf{F}_{fric} + \mathbf{F}
+						
+						\]
+					</p>
+					<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b>; S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></span>
+					</section>
                 	<section data-auto-animate data-auto-animate-unmatched="fade">
                 	    <h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
 						<p>
