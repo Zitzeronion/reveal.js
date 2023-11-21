@@ -112,9 +112,6 @@
 						<span style="color: #FED650; font-size:50%"> S. Chapman, T. G. Cowling, <b>1990</b>; D. Enskog,  <b>1917</b></span>	
 					</section>
 					
-				</section>
-
-				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
                         <h2>Numerics</h2>
 						<a href="https://oaktrust.library.tamu.edu/bitstream/handle/1969.1/86068/OBrien.pdf?sequence=1&isAllowed=y"><img src="https://people.ece.cornell.edu/land/courses/ece5760/DE1_SOC/Lattice_Boltzmann/d2q9_streaming.PNG" width="75%"></img></a>
@@ -153,10 +150,20 @@ for cycle = 1:maxT
                     </section>
 
 					<section>
+						<h2>What about boundaries?</h2>
+						<a href="https://www.sciencedirect.com/science/article/pii/S0898122119301646">
+							<img src="assets/bounce_back2.jpg" width="75%"></img>
+						</a>
+						
+					</section>
+
+					<section>
 						<h2>What does it do</h2>
 						<iframe width="840" height="473" src="https://www.youtube.com/embed/ZDAO_xSwzU4?si=jrgas838g3fPdhKz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
 						<span style="color: #FED650; font-size:50%">&#169 Jousef Murad</span>	
 					</section>
+
+					
 				</section>
 				<!-- Swalbe slides -->
 				<section>
@@ -168,25 +175,44 @@ for cycle = 1:maxT
 						<p>
 							\[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0 \\ 
 							\partial_t (h \mathbf{u}) + \nabla \cdot (h \mathbf{u}\mathbf{u}) = -gh \nabla h +\\ 
-							+  \nu \nabla^2 (h\mathbf{u}) + 2\nu \nabla (\nabla \cdot (h\mathbf{u})) +
+							\nu \nabla^2 (h\mathbf{u}) + 2\nu \nabla (\nabla \cdot (h\mathbf{u})) +
 							\mathbf{F}_{tot}\]
 						</p>
-						<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b>; S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></span>
+						<span style="color: #FED650; font-size:50%">W. Y. Tan, <em>Shallow water hydrodynamics</em>, <b>1992</b></span>
 					
                 	</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-					<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
-					<!-- Insert shallow water picture -->
+					<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Shallow water thin film?</a></h2>
 					<p>
-						Shallow water $\neq$ thin film
-					</p>
-					<p>
-						\[\mathbf{F}_{tot} = \mathbf{F}_{film} + \mathbf{F}_{fric} + \mathbf{F}
+						<img src="assets/Pam.png" width="60%"></img>
+						<!-- 
+						<a href="https://en.wikipedia.org/wiki/Shallow_water_marine_environment#/media/File:Shallow_water.jpg">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Shallow_water.jpg" width="30%"></img>
+						</a>
+						<a href="https://sciencedemonstrations.fas.harvard.edu/sites/projects.iq.harvard.edu/files/styles/os_files_xlarge/public/science-demonstrations/files/thinfilminterference-freeze-top-2-640x360.jpg?m=1446840253&itok=VPYsnjQr">
+							<img src="https://sciencedemonstrations.fas.harvard.edu/sites/projects.iq.harvard.edu/files/styles/os_files_xlarge/public/science-demonstrations/files/thinfilminterference-freeze-top-2-640x360.jpg?m=1446840253&itok=VPYsnjQr" width="40%"></img>
+						</a>
+						Insert shallow water picture -->
 						
-						\]
 					</p>
-					<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b>; S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></span>
 					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Mapping</a></h2>
+						<p>
+							\[
+							\mathbf{F}_{tot} = \mathbf{F}_{film} + \mathbf{F}_{fric} + \mathbf{F}
+							\]
+						</p>
+						<p>Quasisteady processes at low Re with subleading viscous terms</p>
+						<p>
+							\[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0  \\ 
+							0 = -gh \nabla h - \frac{1}{\rho_0}h\nabla p - \nu\alpha_{\delta}(h) \mathbf{u} + \mathbf{F} 
+							\]
+						</p>
+						<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b>; S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></span>
+					</section>
+
                 	<section data-auto-animate data-auto-animate-unmatched="fade">
                 	    <h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
 						<p>
@@ -202,44 +228,151 @@ for cycle = 1:maxT
 						<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b>; S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></span>
 					
                 	</section>
+
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Friction and pressure</a></h2>
 						<p>
+							\[
+							\alpha_{\delta}(h) = \frac{6h}{2h^2 + 6h\delta + 3\delta^2}
+							\]
+						</p>
+						<p>
+							\[
+							p = -\gamma(\Delta h - \Pi(h))\\
+							\Pi(h) = (1 - \cos\theta)\frac{(n-1)(m-1)}{(n-m)h_*}\left[\left(\frac{h_*}{h}\right)^n -\left(\frac{h_*}{h}\right)^m\right] 
+							\]
+						</p>
+						<span style="color: #FED650; font-size:50%">L. W. Schwartz and R. R. Eley, <em>J. Colloid Interface Sci.</em>, <b>202 1998</b></span>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Patterned substrate</a></h2>
+						<p>
+							<img src="assets/logo_animation.gif" width="60%"></img>
+							<!--
 							<iframe width="420" height="250" src="https://www.youtube.com/embed/ewVSHU-jzt8?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							<iframe width="420" height="250" src="https://www.youtube.com/embed/xl57RTFi4oI?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							<iframe width="420" height="250" src="https://www.youtube.com/embed/QgOgNGkUQK4?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							-->
 						</p>
 					</section>
 				</section>
                 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Palabos</h2>
-						<blockquote cite="https://palabos.unige.ch/">
-							&ldquo;The Palabos library is a framework for general-purpose computational fluid dynamics (CFD), with a kernel based on the lattice Boltzmann (LB) method.&rdquo;
-						</blockquote>
-						<a href="https://palabos.unige.ch/gallery/"><img src="https://palabos.unige.ch/files/7015/8797/5200/background2_1080.png" width="50%"><img src="https://palabos.unige.ch/files/5915/8797/4923/vertebroplasty.png" width="50%"></img></a>
+						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Colorful fluid Dynamics</a></h2>
+						<a href="https://jugit.fz-juelich.de/compflu/swalbe.jl">
+							<img src="https://user-images.githubusercontent.com/26249811/189327279-44d73c33-e29b-4307-a11e-90d359bed3c7.png" style="background: transparent;" width="80%">
+						</a>
+						<br>
+						<span style="color: #FED650; font-size:50%">S. Zitz, A. Scagliarini, J. Harting, <em>Phys. Rev. Fluid</em>, <b>accepted</b></span>
+
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Palabos</h2>
-						<iframe width="840" height="473" src="https://www.youtube.com/embed/xcrMSecJ81Q?si=_teZnmoZKo6rYSbp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						<h2><a href="https://www.science.org/doi/10.1126/science.288.5471.1624">Switchable Substrates</a></h2>
+						<p>
+							<a href="https://www.science.org/doi/10.1126/science.288.5471.1624">
+								<img src="https://www.science.org/cms/10.1126/science.288.5471.1624/asset/66e669e5-9012-4cdc-ade8-455af0867a10/assets/graphic/se1708515002.jpeg" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
+							</a>
+						</p>
+						<p>
+							\[\theta(\mathbf{x},t) = \theta_0 + \delta\theta\left[\sin(q_{\theta}(x+v_xt))\sin(q_{\theta}(y+v_yt))\right]\]
+						</p>
+						<span style="color: #FED650; font-size:50%">K. Ichimura et al., <em>Science</em>, <b>288, 2000</b></span>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Static pattern</a></h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 50px 0px 0px -500px">
+								<img src="assets/Clusters_sin_pictures_noV.svg" width="550">
+							</p>
+							<P style="padding: 0.0em; margin: 0px 0px 0px 500px">
+								Time scale $t_0$
+								\[ t_0 = \frac{3\mu}{\gamma h_0^3q_0^4} \]
+								Length scale $2\pi/q_0$
+								\[ q_0^2 = \frac{1}{2\gamma}\frac{\partial \Pi(h)}{\partial h}\bigg\rvert_{h=h_0} \]
+							</P>
+						</div>
+						<p><span style="color: #FED650; font-size:50%">Mecke K., Rauscher M., <em> J. Phys. Condens. Matter</em>, <b>17 2005</b> </span></p>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Droplet advection</h2>
+						<P>
+							<iframe width="720" height="450" src="https://www.youtube.com/embed/xl57RTFi4oI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</P>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Droplet advection</h2>
+						<p>
+							<video src="assets/d0sm02082f2.mp4" data-autoplay controls loop></video>
+						</p>
+						<p><span style="color: #FED650; font-size:50%">Grawitter J., Stark H., <em>Soft Matter</em>, <b>17 2021</b> </span></p>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Three shades of dewetting</h2>
+						<p>
+							<iframe width="420" height="250" src="https://www.youtube.com/embed/ewVSHU-jzt8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="420" height="250" src="https://www.youtube.com/embed/xl57RTFi4oI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="420" height="250" src="https://www.youtube.com/embed/QgOgNGkUQK4?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</p>
+					</section>
+
+					<section>
+						<h2>Morphologies</h2>
+						<p>
+							<img src="assets/Morpho_lam2_diffGamma.svg" width="550" style="margin: 10px 0px 0px 0px; background: transparent;">
+						</p>
+						<p style="display: inline-block; margin: -50px 0px 0px 0px;">
+							\[\Gamma = \frac{v_{\theta}}{U_{\theta}}, \quad U_{\theta} = \frac{\gamma\Theta^3}{9\mu}\]
+						</p>
+					</section>
+					<section>
+						<h2>Metastable rivulets</h2>
+						<p>
+							\[\Delta h(t)\sim \frac{\lambda}{v_{\theta}}e^{\alpha t},\quad \Delta h(\tau_{\text{riv}})\sim \beta h_0\\
+							\tau_{\text{riv}} \sim \log(v_{\theta})\sim\log(\Gamma)\]
+						</p>
+						<p>
+							<span style="display: inline-block;" class="fragment fade-right"><img src="assets/Riv_stability.svg" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo"></span>
+						</p>
+					</section>
+					<section>
+						<h2>Coalescence and Marangoni forces</h2>
+						<a href="https://jugit.fz-juelich.de/compflu/swalbe.jl">
+							<img src="assets/title_venice.svg" alt="first figure" style="height: 360px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+						</a>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                        <h2>Coalescence?</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 50px -100px 0px -500px">
+								<video src="assets/coalescence.mp4" data-autoplay controls loop></video>
+							</p>
+							<p style="padding: 0.0em; margin: 50px 50px 0px 500px">
+								<video src="assets/SupplB_delayed_coalescence.mp4" controls loop></video>
+							</p>
+						</div>
+                        </p>
+                        <span style="color: #FED650; font-size:50%">T. Sykes et al., <em>PRF</em>, <b>5(2) 2020</b>, S. Karpitschka, H. Riegler, <em>Langmuir</em>, <b>26(14) 2010</b> </span>
+                    </section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+						<p>
+                	        <blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
+                	            &ldquo;Ideas can be implemented and tested quickly with a two dimensional system....&rdquo;
+                	        </blockquote>
+                	    </p>
+						<p>\[F_{\gamma} = \frac{3}{2}\partial_x\gamma\]</p>
+                	    <p>\[p = \gamma\partial_x^2 h + \Pi(h)\]</p>
+						<p>\[\Pi(h) = K(\theta,\gamma)f(h)\]</p>
+						<p><span style="color: #FED650; font-size:50%">S. Zitz et al., <em>arXiv</em>, <b>2022</b> </span></p>
 					</section>
 				</section>
 
-				<section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>PowerFlow</h2>
-						<blockquote cite="https://www.3ds.com/products-services/simulia/products/powerflow/">
-							&ldquo;High fidelity transient Lattice Boltzmann based solution, accurate across most flow regimes ...&rdquo; 
-						</blockquote>
-						<a href="https://www.3ds.com/fileadmin/PRODUCTS/SIMULIA/IMG/products/PowerFLOW/Volvo-case_studyUPDATED.pdf"><img src="https://enterprise.trimech.com/wp-content/uploads/2022/12/volvo-trucks-analysis.png" width="50%" border="0" alt=""></img></a><br>
-					</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>PowerFlow</h2>
-						<iframe width="504" height="284" src="https://www.youtube.com/embed/uYgkNMlnAsQ?si=fN8gliLfEkryuCxz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-						<iframe width="504" height="284" src="https://www.youtube.com/embed/O0iFaPo_EMw?si=LN50Ezo-BLqwih_H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-					</section>
-				</section>
 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
