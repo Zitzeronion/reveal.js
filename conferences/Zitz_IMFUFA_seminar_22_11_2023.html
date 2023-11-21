@@ -168,7 +168,7 @@ for cycle = 1:maxT
 				<!-- Swalbe slides -->
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-                	    <h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+                	    <h2>Swalbe.jl</h2>
 						<p>
 							<a href="https://github.com/Zitzeronion/Swalbe.jl"><b>S</b></a>hallow <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>W</b></a>ater <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>L</b></a>attice <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>B</b></a>oltzmann sol<a href="https://github.com/Zitzeronion/Swalbe.jl"><b>E</b></a>r
 						</p>
@@ -182,7 +182,7 @@ for cycle = 1:maxT
 					
                 	</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-					<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Shallow water thin film?</a></h2>
+					<h2>Shallow water thin film?</h2>
 					<p>
 						<img src="assets/Pam.png" width="60%"></img>
 						<!-- 
@@ -198,7 +198,7 @@ for cycle = 1:maxT
 					</section>
 
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Mapping</a></h2>
+						<h2>Approximating thin films</h2>
 						<p>
 							\[
 							\mathbf{F}_{tot} = \mathbf{F}_{film} + \mathbf{F}_{fric} + \mathbf{F}
@@ -210,11 +210,11 @@ for cycle = 1:maxT
 							0 = -gh \nabla h - \frac{1}{\rho_0}h\nabla p - \nu\alpha_{\delta}(h) \mathbf{u} + \mathbf{F} 
 							\]
 						</p>
-						<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b>; S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></span>
+						<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b></span>
 					</section>
 
                 	<section data-auto-animate data-auto-animate-unmatched="fade">
-                	    <h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+                	    <h2>Swalbe.jl</h2>
 						<p>
 							<blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
 								&ldquo;Weeks of coding have saved me hours of thinking.&rdquo;
@@ -225,12 +225,12 @@ for cycle = 1:maxT
 							\mathbf{u} \approx \frac{1}{\nu \alpha(h)}\left(-gh \nabla h -\frac{1}{\rho_0}h\nabla p + \mathbf{F}\right) \\
 							\partial_t h \approx \nabla \cdot \left(\frac{h^3}{3\mu}\nabla p\right)\]
 						</p>
-						<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b>; S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></span>
+						<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></span>
 					
                 	</section>
 
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Friction and pressure</a></h2>
+						<h2>Details</h2>
 						<p>
 							\[
 							\alpha_{\delta}(h) = \frac{6h}{2h^2 + 6h\delta + 3\delta^2}
@@ -239,37 +239,33 @@ for cycle = 1:maxT
 						<p>
 							\[
 							p = -\gamma(\Delta h - \Pi(h))\\
-							\Pi(h) = (1 - \cos\theta)\frac{(n-1)(m-1)}{(n-m)h_*}\left[\left(\frac{h_*}{h}\right)^n -\left(\frac{h_*}{h}\right)^m\right] 
+							\Pi(h) = (1 - \cos\theta)\frac{(n-1)(m-1)}{(n-m)h_*}\\
+							\left[\left(\frac{h_*}{h}\right)^n -\left(\frac{h_*}{h}\right)^m\right] 
 							\]
 						</p>
 						<span style="color: #FED650; font-size:50%">L. W. Schwartz and R. R. Eley, <em>J. Colloid Interface Sci.</em>, <b>202 1998</b></span>
 					</section>
 
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Patterned substrate</a></h2>
+						<h2>Patterned substrate</h2>
 						<p>
 							<img src="assets/logo_animation.gif" width="60%"></img>
-							<!--
-							<iframe width="420" height="250" src="https://www.youtube.com/embed/ewVSHU-jzt8?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<iframe width="420" height="250" src="https://www.youtube.com/embed/xl57RTFi4oI?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<iframe width="420" height="250" src="https://www.youtube.com/embed/QgOgNGkUQK4?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							-->
 						</p>
 					</section>
 				</section>
                 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Colorful fluid Dynamics</a></h2>
+						<h2>Colorful fluid Dynamics</h2>
 						<a href="https://jugit.fz-juelich.de/compflu/swalbe.jl">
 							<img src="https://user-images.githubusercontent.com/26249811/189327279-44d73c33-e29b-4307-a11e-90d359bed3c7.png" style="background: transparent;" width="80%">
 						</a>
 						<br>
-						<span style="color: #FED650; font-size:50%">S. Zitz, A. Scagliarini, J. Harting, <em>Phys. Rev. Fluid</em>, <b>accepted</b></span>
+						<span style="color: #FED650; font-size:50%">S. Zitz, A. Scagliarini, J. Harting, <em>Phys. Rev. Fluids</em>, <b><a href="https://journals.aps.org/prfluids/accepted/c507bYb7Z9a17175477f285350583a419494134fa">accepted</a></b></span>
 
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://www.science.org/doi/10.1126/science.288.5471.1624">Switchable Substrates</a></h2>
+						<h2>Switchable Substrates</h2>
 						<p>
 							<a href="https://www.science.org/doi/10.1126/science.288.5471.1624">
 								<img src="https://www.science.org/cms/10.1126/science.288.5471.1624/asset/66e669e5-9012-4cdc-ade8-455af0867a10/assets/graphic/se1708515002.jpeg" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
@@ -281,7 +277,7 @@ for cycle = 1:maxT
 						<span style="color: #FED650; font-size:50%">K. Ichimura et al., <em>Science</em>, <b>288, 2000</b></span>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Static pattern</a></h2>
+						<h2>Static pattern</h2>
 						<div class="r-stack">
 							<p style="padding: 0.0em; margin: 50px 0px 0px -500px">
 								<img src="assets/Clusters_sin_pictures_noV.svg" width="550">
@@ -335,9 +331,10 @@ for cycle = 1:maxT
 							\tau_{\text{riv}} \sim \log(v_{\theta})\sim\log(\Gamma)\]
 						</p>
 						<p>
-							<span style="display: inline-block;" class="fragment fade-right"><img src="assets/Riv_stability.svg" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo"></span>
+							<img src="assets/Riv_stability.svg" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
 						</p>
 					</section>
+
 					<section>
 						<h2>Coalescence and Marangoni forces</h2>
 						<a href="https://jugit.fz-juelich.de/compflu/swalbe.jl">
@@ -366,73 +363,137 @@ for cycle = 1:maxT
                 	            &ldquo;Ideas can be implemented and tested quickly with a two dimensional system....&rdquo;
                 	        </blockquote>
                 	    </p>
-						<p>\[F_{\gamma} = \frac{3}{2}\partial_x\gamma\]</p>
-                	    <p>\[p = \gamma\partial_x^2 h + \Pi(h)\]</p>
-						<p>\[\Pi(h) = K(\theta,\gamma)f(h)\]</p>
+						<p>\[ F_{\gamma} = \frac{3}{2}\partial_x\gamma \]</p>
+                	    <p>\[ p = -\gamma(\partial_x^2 h - \Pi(h)) \]</p>
+						
 						<p><span style="color: #FED650; font-size:50%">S. Zitz et al., <em>arXiv</em>, <b>2022</b> </span></p>
 					</section>
-				</section>
 
-
-				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Reasons to love</h2>
-						<p>No meshing</p>
-						<a href="http://www.geometry.caltech.edu/pubs/LCDZL20.pdf"><img src="https://d3i71xaburhd42.cloudfront.net/b464c667afb545a5f38e0ff44698a392d255d4f1/5-Figure4-1.png" width="60%"></img></a>
-						<p><span style="color: #FED650; font-size:50%">L. W. Chen et al., <em>ACM Trans. Graph.</em>, <b>39(4) 2020</b> </span></p>
+						<h2>Scaling laws</h2>
+						<p>
+							<video src="assets/Borcia_Bestehorn_coal.mp4" data-autoplay controls loop></video>
+						</p>
+						<p><span style="color: #FED650; font-size:50%">R. Borcia & M. Bestehorn, <em>Langmuir</em>, <b>29(14) 2013</b> </span></p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Scaling laws</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
+								<img src="assets/bridge_evo_gamma0.svg" width="600" height="400">
+							</p>
+							<P style="padding: 0.0em; margin: 0px 0px 0px 500px">
+								\[ p_c \sim \gamma\kappa \\
+								p_i \sim \rho (h_0/t)^2 \\
+								h_0 \sim t^{2/3} \\
+								\tau = \sqrt{\rho R_0^3/\gamma}\]
+							</P>
+						</div>
+						<p><span style="color: #FED650; font-size:50%">A. Eddi et al., <em>PRL</em>, <b>111(14) 2013</b> </span></p>
 					</section>
 
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Reasons to love</h2>
-						<p>Simple algorithm with many extensions</p>
-						<a href="https://link.springer.com/article/10.1007/s11242-021-01644-9"><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs11242-021-01644-9/MediaObjects/11242_2021_1644_Fig3_HTML.png?as=webp" width="53%"></img></a>
-						<a href="https://royalsocietypublishing.org/doi/10.1098/rsfs.2022.0037"><img src="https://royalsocietypublishing.org/cms/asset/287dace1-c5cd-4651-8062-8db531ef1040/rsfs20220037f02.gif" width="45%"></img></a>
-						<p><span style="color: #FED650; font-size:50%">Q. F. Zhao et al., <em>Transp. Porous Med.</em>, <b>140 2021</b>, Q. Zhou et al., <em>Interface Focus</em>, <b>12(6) 2022</b> </span></p>
+						<h2>Experiments</h2>
+						<p>
+							<a href="https://pubs.acs.org/doi/abs/10.1021/la1007457">
+								<img src="assets/Karpitschka_coal.jpeg" width="60%">
+								<br>
+								<img src="assets/h_final_three.svg" width="70%" class="r-stretch">
+							</a>
+						</p>
+						<p><span style="color: #FED650; font-size:50%">S. Karpitschka, H. Riegler, <em>Langmuir</em>, <b>26(14) 2010</b> </span></p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Separation</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -600px">
+								<img src="assets/bridge_evo_all2.svg" width="500">
+							</p>
+							<p style="padding: 0.0em; margin: 0px 0px 0px 400px">
+								<img src="assets/Marangoni_coalescence.png" width="500">
+							</p>
+						</div>
+						\[ \tau_s \sim (\partial_x\gamma)^{-3/2} \]
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Noise</h2>
+						<a href="https://giphy.com/gifs/justin-static-YRcXl6VfNhCorklI0R"><img src="assets/white_noise.gif" width="90%"></a>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Fluctuating thin films</h2>
+						<p>
+							\[
+							\partial_t h = \partial_x \left[\frac{h^3}{3\mu}\partial_x p + \sqrt{\frac{2k_BTh^3}{3\mu}}\mathcal{N}\right]
+							\]
+						</p>
+						<p>
+							\[
+							\langle\mathcal{N}(x,t)\rangle =0\\ 
+    						\langle\mathcal{N}(x,t)\mathcal{N}(x',t')\rangle =\delta(x-x')\delta(t-t')
+							\]
+						</p>
 					</section>
 
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Reasons to love</h2>
-						<p>Performance</p>
-						<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.106.015308"><img src="https://journals.aps.org/pre/article/10.1103/PhysRevE.106.015308/figures/16/medium" width="80%"></img></a>
-						<p><span style="color: #FED650; font-size:50%">M. Lehmann et al., <em>Phys. Rev. E</em>, <b>106(1) 2022</b> </span></p>
+						<h2>Fluctuating thin films</h2>
+						<p>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/thermal_spectrum.PNG" width="40%"></a>
+						</p>
+						<p>
+							\[
+							S(q,t) = S_0 e^{2\omega(q)t} + \frac{\sigma^2 h_0^2 L}{q_0^2}g\left(\frac{q}{q_0}\right)(e^{2\omega(q)t} - 1)\\
+							F_{\text{fluc}} = \frac{1}{\rho_0} \sqrt{2 k_B T \mu \alpha_{\delta}(h)}\mathcal{N}
+							\]
+						</p>
 					</section>
-				</section>
-
-				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Reasons to avoid</h2>
-						<p>Flow regimes</p>
-						<a href="https://royalsocietypublishing.org/doi/10.1098/rsta.2019.0559#d1e5008"><img src="https://royalsocietypublishing.org/cms/asset/50ff2187-a32c-49f9-9a73-da07a4a1aa6b/rsta20190559f10.jpg" width="60%"></img></a>
-						<p><span style="color: #FED650; font-size:50%">J. Latt et al., <em>Philos. Trans. R. Soc. A</em>, <b>378(2175) 2020</b> </span></p>
+					<h2>Rupture times</h2>
+						<p>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/rup_angle_thermal.PNG" width="40%"></a>
+						</p>
+						<p>
+							\[
+							\chi_{\sigma}(\theta) \sim \frac{\log\left(\frac{h_0 L^{1/2}}{S_0^{1/2}}\right)}{\log\left(\frac{a \theta}{\sigma}\right)} \propto \frac{1}{\log(\theta/\sigma)}
+							\]
+						</p>
 					</section>
-
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Reasons to avoid</h2>
-						<p>Spurious currents: <em>About 17.100 results (0,14 sec)</em></p>
-						<a href="https://scholar.google.dk/scholar?q=spurious+currents+lattice+boltzmann&hl=en&as_sdt=0&as_vis=1&oi=scholart"><img src="https://user-images.githubusercontent.com/26249811/267678165-5aac87de-3e59-4201-bdf6-0512ae35181e.PNG" width="60%"></img></a>
-					</section>
-
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Reasons to avoid</h2>
-						<p>Performance</p>
-						<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.106.015308"><img src="https://journals.aps.org/pre/article/10.1103/PhysRevE.106.015308/figures/16/medium" width="80%"></img></a>
-						<p><span style="color: #FED650; font-size:50%">M. Lehmann et al., <em>Phys. Rev. E</em>, <b>106(1) 2022</b> </span></p>
-					</section>
+						<h2>Fluctuations and pattern</h2>
+							<p>
+								<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/spacedep_thermal.PNG" width="40%"></a>
+							</p>
+							<p>
+								\[
+								\Xi = \frac{\tau_d(\pi/6)}{\tau_d(\pi/9)}  \propto  {\frac{U(\pi/9)}{U(\pi/6)} \sim \frac{\left(\pi/9\right)^3}{\left(\pi/6\right)^3} = \left(\frac{2}{3}\right)^3 = 0.296...}
+								\]
+							</p>
+						</section>
+						<section data-auto-animate data-auto-animate-unmatched="fade">
+							<h2>Fluctuations and pattern</h2>
+								<p>
+									<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/event_rup_sound.PNG" width="40%"></a>
+								</p>
+								<p>
+									\[
+									\Xi = \frac{\tau_d(\pi/6)}{\tau_d(\pi/9)}  \propto  {\frac{U(\pi/9)}{U(\pi/6)} \sim \frac{\left(\pi/9\right)^3}{\left(\pi/6\right)^3} = \left(\frac{2}{3}\right)^3 = 0.296...}
+									\]
+								</p>
+							</section>
 				</section>
 				
 				<section>
 					<h2>Conclusion</h2>
-					<blockquote cite="">
+					<a href="https://en.wikipedia.org/wiki/Law_of_the_instrument"><blockquote cite="">
 						&ldquo;If the only tool you have is a hammer, it is tempting to treat everything as if it were a nail.&rdquo;
-					</blockquote>
+					</blockquote></a>
 					<ul>
-						<li>Lattice Boltzmann is a mature CFD tool</li>
-						<li>Similar to any other method there are limitations</li>
-						<li>Open Source & Commercial</li>
+						<li>LBM is part of the CFD community</li>
+						<li>Shallow water $\rightarrow$ large slip thin film models</li>
+						<li>Thin films are cool 🧊</li>
 					</ul>
 					<br>
 					<br>
-					<span style="color: #ff5555ff; font-size:150%">Thank you!<br> Questions? 🧐 </span>
+					<span style="color: #ff5555ff; font-size:150%">Thank you!</span>
 				</section>
 			</div>
 		</div>
