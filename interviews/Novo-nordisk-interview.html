@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Fluctuating thin films</title>
+
+		<meta name="description" content="Novo Nordisk interview">
+		<meta name="author" content="Stefan Zitz">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+						<img src="../conferences/assets/With_scaled_kbt_thin_film.png" width="75%"></img><br>
+					<h3>Thermal fluctuations in thin films</h3>
+					<h5>Probably a bad choice</h5>
+					<p>
+						<small>Application interview, January the 10th 2024</small>
+					</p>
+				</section>
+
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Computational physics</h2> 
+						<img src="../conferences/assets/Pi_integration.gif" width="60%"></img><br>
+						\[ \pi \propto \frac{\text{darts inside unit circle}}{\text{darts outside unit circle}}\]
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Computational physics</h2>
+						<a href="https://github.com/genkuroki/Ising2D.jl"><img src="../conferences/assets/ising2d_mcmc.gif" width="60%"></img></a><br>
+						\[H(\sigma) = -J\sum_{i,j}\sigma_i\sigma_j\]
+						<span style="color: #FED650; font-size:50%">Ising2D.jl</span>
+					</section>
+					
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Computational physics</h2> 
+						<a href="https://github.com/jump-dev/JuMP.jl"><img src="../conferences/assets/traveling_route.png" width="40%"></img></a><br>
+						\[P(\delta E) = \exp\left(-\frac{\delta E}{k_BT}\right) > r\]
+						<span style="color: #FED650; font-size:50%">Lubin, M., Dowson, O., Garcia, J.D. et al., <em>Math. Prog. Comp.</em>, <b>15, 2023</b> </span>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Stochastic ODEs</h2> 
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
+								\[\rho(\mathbf{x}, t) = \int f(\mathbf{x},\boldsymbol{\xi}, t) \diff^3\xi \\
+								\rho\mathbf{u} = \int \boldsymbol{\xi}f(\mathbf{x},\boldsymbol{\xi}, t) \diff^3\xi \\
+								\rho E = \frac{1}{2}\int |\boldsymbol{\xi}|^2 f(\mathbf{x},\boldsymbol{\xi}, t) \diff^3\xi\]
+							</p>
+							<P style="padding: 0.0em; margin: 0px 0px 0px 600px">
+								\[\int \Omega(f) \diff^3\xi = 0 \\
+								\int \boldsymbol{\xi}\Omega(f) \diff^3\xi = \mathbf{0}\\
+								\int |\boldsymbol{\xi}|^2 \Omega(f) \diff^3\xi = 0\]
+							</P>
+						</div>
+						<span style="color: #FED650; font-size:50%">S. Succi, <em>The Lattice Boltzmann Equation: For Fluid Dynamics and Beyond</em>, <b>2001</b></span>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Stochastic PDEs</h2> 
+						<p>
+							\[
+							\partial_t h = \partial_x \left[\frac{h^3}{3\mu}\partial_x p + \sqrt{\frac{2k_BTh^3}{3\mu}}\mathcal{N}\right]
+							\]
+						</p>
+						<p>
+							\[
+							\langle\mathcal{N}(x,t)\rangle =0\\ 
+    						\langle\mathcal{N}(x,t)\mathcal{N}(x',t')\rangle =\delta(x-x')\delta(t-t')
+							\]
+						</p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Spectra</h2>
+						<p>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/thermal" width="40%"></a>
+						</p>
+						<p>
+							\[
+							S(q,t) = S_0 e^{2\omega(q)t} + \frac{\sigma^2 h_0^2 L}{q_0^2}g\left(\frac{q}{q_0}\right)(e^{2\omega(q)t} - 1)\\
+							F_{\text{fluc}} = \frac{1}{\rho_0} \sqrt{2 k_B T \mu \alpha_{\delta}(h)}\mathcal{N}
+							\]
+						</p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+					<h2>Rupture times</h2>
+						<p>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/rup_angle_thermal.PNG" width="40%"></a>
+						</p>
+						<p>
+							\[
+							\chi_{\sigma}(\theta) \sim \frac{\log\left(\frac{h_0 L^{1/2}}{S_0^{1/2}}\right)}{\log\left(\frac{a \theta}{\sigma}\right)} \propto \frac{1}{\log(\theta/\sigma)}
+							\]
+						</p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Fluctuations and pattern</h2>
+							<p>
+								<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/spacedep_thermal.PNG" width="40%"></a>
+							</p>
+							<p>
+								\[
+								\Xi = \frac{\tau_d(\pi/6)}{\tau_d(\pi/9)}  \propto  {\frac{U(\pi/9)}{U(\pi/6)} \sim \frac{\left(\pi/9\right)^3}{\left(\pi/6\right)^3} = \left(\frac{2}{3}\right)^3 = 0.296...}
+								\]
+							</p>
+						</section>
+						<section data-auto-animate data-auto-animate-unmatched="fade">
+							<h2>Fluctuations and pattern</h2>
+								<p>
+									<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/event_rup_sound.PNG" width="40%"></a>
+								</p>
+								<p>
+									\[
+									\Xi = \frac{\tau_d(\pi/6)}{\tau_d(\pi/9)}  \propto  {\frac{U(\pi/9)}{U(\pi/6)} \sim \frac{\left(\pi/9\right)^3}{\left(\pi/6\right)^3} = \left(\frac{2}{3}\right)^3 = 0.296...}
+									\]
+								</p>
+							</section>
+					</section>
+
+					<section>
+						<h2>Conclusion</h2>
+						<blockquote cite="George Bernard Shaw">
+							&ldquo;Those who cannot change their minds cannot change anything.&rdquo;
+						</blockquote>
+						<ul>
+							<li>Background on Monte-Carlo methods</li>
+							<li>Stochastic SEIR</li>
+							<li>Stochastic thin films</li>
+						</ul>
+						<br>
+						<br>
+						<span style="color: #ff5555ff; font-size:150%">Thank you!<br> Questions? 🧐 </span>
+					
+
+					</section>
+				
+				
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                        <h2>Implementation</h2>
+						<pre><code data-trim data-noescape>
+for cycle = 1:maxT
+
+    % MACROSCOPIC VARIABLES
+    rho = sum(fIn);
+    ux  = reshape ( (cx * reshape(fIn,9,lx*ly)), 1,lx,ly) ./rho;
+    uy  = reshape ( (cy * reshape(fIn,9,lx*ly)), 1,lx,ly) ./rho;
+
+    % COLLISION STEP
+    for i=1:9
+    	cu = 3*(cx(i)*ux+cy(i)*uy);
+    	fEq(i,:,:)  = rho .* t(i) .* ...
+                    ( 1 + cu + 1/2*(cu.*cu)  - 3/2*(ux.^2+uy.^2) );
+       fOut(i,:,:) = fIn(i,:,:) - omega .* (fIn(i,:,:)-fEq(i,:,:));
+    end
+
+	% STREAMING STEP
+    for i=1:9
+       fIn(i,:,:) = circshift(fOut(i,:,:), [0,cx(i),cy(i)]);
+    end
+					</code></pre>
+					<span style="color: #FED650; font-size:50%">Palabos/Get Started</span>
+                    </section>
+
+					<section>
+						<h2>What about boundaries?</h2>
+						<a href="https://www.sciencedirect.com/science/article/pii/S0898122119301646">
+							<img src="assets/bounce_back2.jpg" width="75%"></img>
+						</a>
+						
+					</section>
+
+					<section>
+						<h2>What does it do</h2>
+						<iframe width="840" height="473" src="https://www.youtube.com/embed/ZDAO_xSwzU4?si=jrgas838g3fPdhKz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+						<span style="color: #FED650; font-size:50%">&#169 Jousef Murad</span>	
+					</section>
+
+					
+				</section>
+				<!-- Swalbe slides -->
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                	    <h2>Swalbe.jl</h2>
+						<p>
+							<a href="https://github.com/Zitzeronion/Swalbe.jl"><b>S</b></a>hallow <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>W</b></a>ater <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>L</b></a>attice <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>B</b></a>oltzmann sol<a href="https://github.com/Zitzeronion/Swalbe.jl"><b>E</b></a>r
+						</p>
+						<p>
+							\[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0 \\ 
+							\partial_t (h \mathbf{u}) + \nabla \cdot (h \mathbf{u}\mathbf{u}) = -gh \nabla h +\\ 
+							\nu \nabla^2 (h\mathbf{u}) + 2\nu \nabla (\nabla \cdot (h\mathbf{u})) +
+							\mathbf{F}_{tot}\]
+						</p>
+						<span style="color: #FED650; font-size:50%">W. Y. Tan, <em>Shallow water hydrodynamics</em>, <b>1992</b></span>
+					
+                	</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+					<h2>Shallow water thin film?</h2>
+					<p>
+						<img src="assets/Pam.png" width="60%"></img>
+						<!-- 
+						<a href="https://en.wikipedia.org/wiki/Shallow_water_marine_environment#/media/File:Shallow_water.jpg">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Shallow_water.jpg" width="30%"></img>
+						</a>
+						<a href="https://sciencedemonstrations.fas.harvard.edu/sites/projects.iq.harvard.edu/files/styles/os_files_xlarge/public/science-demonstrations/files/thinfilminterference-freeze-top-2-640x360.jpg?m=1446840253&itok=VPYsnjQr">
+							<img src="https://sciencedemonstrations.fas.harvard.edu/sites/projects.iq.harvard.edu/files/styles/os_files_xlarge/public/science-demonstrations/files/thinfilminterference-freeze-top-2-640x360.jpg?m=1446840253&itok=VPYsnjQr" width="40%"></img>
+						</a>
+						Insert shallow water picture -->
+						
+					</p>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Approximating thin films</h2>
+						<p>
+							\[
+							\mathbf{F}_{tot} = \mathbf{F}_{film} + \mathbf{F}_{fric} + \mathbf{F}
+							\]
+						</p>
+						<p>Quasisteady processes at low Re with subleading viscous terms</p>
+						<p>
+							\[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0  \\ 
+							0 = -gh \nabla h - \frac{1}{\rho_0}h\nabla p - \nu\alpha_{\delta}(h) \mathbf{u} + \mathbf{F} 
+							\]
+						</p>
+						<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. E</em>, <b>100(3) 2019</b></span>
+					</section>
+
+                	<section data-auto-animate data-auto-animate-unmatched="fade">
+                	    <h2>Swalbe.jl</h2>
+						<p>
+							<blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
+								&ldquo;Weeks of coding have saved me hours of thinking.&rdquo;
+							</blockquote>
+						</p>
+						<p>
+							\[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0\\ 
+							\mathbf{u} \approx \frac{1}{\nu \alpha(h)}\left(-gh \nabla h -\frac{1}{\rho_0}h\nabla p + \mathbf{F}\right) \\
+							\partial_t h \approx \nabla \cdot \left(\frac{h^3}{3\mu}\nabla p\right)\]
+						</p>
+						<span style="color: #FED650; font-size:50%">S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b></span>
+					
+                	</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Details</h2>
+						<p>
+							\[
+							\alpha_{\delta}(h) = \frac{6h}{2h^2 + 6h\delta + 3\delta^2}
+							\]
+						</p>
+						<p>
+							\[
+							p = -\gamma(\Delta h - \Pi(h))\\
+							\Pi(h) = (1 - \cos\theta)\frac{(n-1)(m-1)}{(n-m)h_*}\\
+							\left[\left(\frac{h_*}{h}\right)^n -\left(\frac{h_*}{h}\right)^m\right] 
+							\]
+						</p>
+						<span style="color: #FED650; font-size:50%">L. W. Schwartz and R. R. Eley, <em>J. Colloid Interface Sci.</em>, <b>202 1998</b></span>
+					</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				mathjax2: {
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ],
+							diff: '\\mathrm{d}'
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.MathJax2 ]
+			});
+
+		</script>
+
+	</body>
+</html>
