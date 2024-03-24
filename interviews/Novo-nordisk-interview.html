@@ -30,7 +30,7 @@
 			<div class="slides">
 				<section>
 						<img src="../conferences/assets/With_scaled_kbt_thin_film.png" width="75%"></img><br>
-					<h3>Thermal fluctuations in thin films</h3>
+					<h3>Monte-Carlo and stochastic PDEs</h3>
 					<h5>Probably a bad choice</h5>
 					<p>
 						<small>Application interview, January the 10th 2024</small>
@@ -39,69 +39,68 @@
 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Computational physics</h2> 
+						<h2>Monte-Carlo Integration</h2> 
 						<img src="../conferences/assets/Pi_integration.gif" width="60%"></img><br>
 						\[ \pi \propto \frac{\text{darts inside unit circle}}{\text{darts outside unit circle}}\]
 					</section>
 
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Computational physics</h2>
+						<h2>Ising model</h2>
 						<a href="https://github.com/genkuroki/Ising2D.jl"><img src="../conferences/assets/ising2d_mcmc.gif" width="60%"></img></a><br>
 						\[H(\sigma) = -J\sum_{i,j}\sigma_i\sigma_j\]
 						<span style="color: #FED650; font-size:50%">Ising2D.jl</span>
 					</section>
 					
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Computational physics</h2> 
-						<a href="https://github.com/jump-dev/JuMP.jl"><img src="../conferences/assets/traveling_route.png" width="40%"></img></a><br>
-						\[P(\delta E) = \exp\left(-\frac{\delta E}{k_BT}\right) > r\]
-						<span style="color: #FED650; font-size:50%">Lubin, M., Dowson, O., Garcia, J.D. et al., <em>Math. Prog. Comp.</em>, <b>15, 2023</b> </span>
+						<h2>Simulated annealing</h2> 
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
+								\[
+								\pi(\sigma) = \frac{1}{Z}\exp\left(-\frac{H(\sigma)}{k_BT}\right) \\ 
+								Z = \sum_{\tau}\exp\left(-\frac{H(\tau)}{k_BT}\right) 
+								\]
+							</p>
+							<P style="padding: 0.0em; margin: 30px 0px 0px 600px">
+								<a href="https://github.com/jump-dev/JuMP.jl"><img src="../conferences/assets/traveling_route.png" width="110%"></img></a><br>
+							</P>
+						</div>
+						\[p(\sigma \rightarrow \tau) = \begin{cases} \exp\left(-\frac{\Delta H}{k_BT}\right)~\text{if}~\Delta H > 0 \\
+																			1~\text{else}
+															\end{cases} \]
+						
+						<span style="color: #FED650; font-size:50%">Bentner, J., et al., <em>Phys. Rev. E</em>, <b>64, 2001</b> </span>
 					</section>
 				</section>
 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Stochastic ODEs</h2> 
+						<h2>SEIR model</h2> 
 						<div class="r-stack">
 							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
-								\[\rho(\mathbf{x}, t) = \int f(\mathbf{x},\boldsymbol{\xi}, t) \diff^3\xi \\
-								\rho\mathbf{u} = \int \boldsymbol{\xi}f(\mathbf{x},\boldsymbol{\xi}, t) \diff^3\xi \\
-								\rho E = \frac{1}{2}\int |\boldsymbol{\xi}|^2 f(\mathbf{x},\boldsymbol{\xi}, t) \diff^3\xi\]
+								\[(S, E, I, R) \\ 
+								~\rightarrow (S-1, E+1, I, R) \propto \frac{\beta~S~I}{N} \\
+								~\rightarrow (S, E-1, I+1, R) \propto \delta~E \\
+								~\rightarrow (S, E, I-1, R+1) \propto \gamma~I
+								\]
 							</p>
-							<P style="padding: 0.0em; margin: 0px 0px 0px 600px">
-								\[\int \Omega(f) \diff^3\xi = 0 \\
-								\int \boldsymbol{\xi}\Omega(f) \diff^3\xi = \mathbf{0}\\
-								\int |\boldsymbol{\xi}|^2 \Omega(f) \diff^3\xi = 0\]
+							<P style="padding: 0.0em; margin: 50px 0px 0px 600px">
+								<a href="https://courses.smp.uq.edu.au/MATH2504/2022/lectures_html/lecture-unit-6.html"><img src="../conferences/assets/stochastic_SEIR.png" width="100%"></img></a><br>
 							</P>
 						</div>
-						<span style="color: #FED650; font-size:50%">S. Succi, <em>The Lattice Boltzmann Equation: For Fluid Dynamics and Beyond</em>, <b>2001</b></span>
+						<span style="color: #FED650; font-size:50%">S. He, Y. Peng & K. Sun, <em>Nonlinear Dyn.</em>, <b>101, 2020</b></span>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Stochastic PDEs</h2> 
+						<h2>Fluctuating Thin films</h2> 
+						<p>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/thermal_spectrum.PNG" width="40%"></a>
+						</p>
 						<p>
 							\[
 							\partial_t h = \partial_x \left[\frac{h^3}{3\mu}\partial_x p + \sqrt{\frac{2k_BTh^3}{3\mu}}\mathcal{N}\right]
 							\]
 						</p>
-						<p>
-							\[
-							\langle\mathcal{N}(x,t)\rangle =0\\ 
-    						\langle\mathcal{N}(x,t)\mathcal{N}(x',t')\rangle =\delta(x-x')\delta(t-t')
-							\]
-						</p>
 					</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Spectra</h2>
-						<p>
-							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/thermal" width="40%"></a>
-						</p>
-						<p>
-							\[
-							S(q,t) = S_0 e^{2\omega(q)t} + \frac{\sigma^2 h_0^2 L}{q_0^2}g\left(\frac{q}{q_0}\right)(e^{2\omega(q)t} - 1)\\
-							F_{\text{fluc}} = \frac{1}{\rho_0} \sqrt{2 k_B T \mu \alpha_{\delta}(h)}\mathcal{N}
-							\]
-						</p>
-					</section>
+					
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 					<h2>Rupture times</h2>
 						<p>
@@ -114,17 +113,6 @@
 						</p>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Fluctuations and pattern</h2>
-							<p>
-								<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/spacedep_thermal.PNG" width="40%"></a>
-							</p>
-							<p>
-								\[
-								\Xi = \frac{\tau_d(\pi/6)}{\tau_d(\pi/9)}  \propto  {\frac{U(\pi/9)}{U(\pi/6)} \sim \frac{\left(\pi/9\right)^3}{\left(\pi/6\right)^3} = \left(\frac{2}{3}\right)^3 = 0.296...}
-								\]
-							</p>
-						</section>
-						<section data-auto-animate data-auto-animate-unmatched="fade">
 							<h2>Fluctuations and pattern</h2>
 								<p>
 									<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/event_rup_sound.PNG" width="40%"></a>
@@ -134,27 +122,28 @@
 									\Xi = \frac{\tau_d(\pi/6)}{\tau_d(\pi/9)}  \propto  {\frac{U(\pi/9)}{U(\pi/6)} \sim \frac{\left(\pi/9\right)^3}{\left(\pi/6\right)^3} = \left(\frac{2}{3}\right)^3 = 0.296...}
 									\]
 								</p>
-							</section>
-					</section>
+								<audio src="../conferences/assets/deterministic.wav" controls></audio>
+								<audio src="../conferences/assets/stochastic.wav" controls></audio>
 
-					<section>
-						<h2>Conclusion</h2>
-						<blockquote cite="George Bernard Shaw">
-							&ldquo;Those who cannot change their minds cannot change anything.&rdquo;
-						</blockquote>
-						<ul>
-							<li>Background on Monte-Carlo methods</li>
-							<li>Stochastic SEIR</li>
-							<li>Stochastic thin films</li>
-						</ul>
-						<br>
-						<br>
-						<span style="color: #ff5555ff; font-size:150%">Thank you!<br> Questions? 🧐 </span>
-					
+					</section>
+				</section>
+				<section>
+					<h2>Conclusion</h2>
+					<blockquote cite="George Bernard Shaw">
+						&ldquo;Those who cannot change their minds cannot change anything.&rdquo;
+					</blockquote>
+					<ul>
+						<li>Background on Monte-Carlo methods</li>
+						<li>Stochastic SEIR</li>
+						<li>Fluctuating thin films</li>
+					</ul>
+					<br>
+					<br>
+					<span style="color: #ff5555ff; font-size:150%">Thank you!<br> Questions? 🧐 </span>
 
 					</section>
 				
-				
+				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
                         <h2>Implementation</h2>
 						<pre><code data-trim data-noescape>
@@ -217,14 +206,6 @@ for cycle = 1:maxT
 					<h2>Shallow water thin film?</h2>
 					<p>
 						<img src="assets/Pam.png" width="60%"></img>
-						<!-- 
-						<a href="https://en.wikipedia.org/wiki/Shallow_water_marine_environment#/media/File:Shallow_water.jpg">
-							<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Shallow_water.jpg" width="30%"></img>
-						</a>
-						<a href="https://sciencedemonstrations.fas.harvard.edu/sites/projects.iq.harvard.edu/files/styles/os_files_xlarge/public/science-demonstrations/files/thinfilminterference-freeze-top-2-640x360.jpg?m=1446840253&itok=VPYsnjQr">
-							<img src="https://sciencedemonstrations.fas.harvard.edu/sites/projects.iq.harvard.edu/files/styles/os_files_xlarge/public/science-demonstrations/files/thinfilminterference-freeze-top-2-640x360.jpg?m=1446840253&itok=VPYsnjQr" width="40%"></img>
-						</a>
-						Insert shallow water picture -->
 						
 					</p>
 					</section>
@@ -278,6 +259,19 @@ for cycle = 1:maxT
 						<span style="color: #FED650; font-size:50%">L. W. Schwartz and R. R. Eley, <em>J. Colloid Interface Sci.</em>, <b>202 1998</b></span>
 					</section>
 
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Spectra</h2>
+						<p>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/thermal_spectrum.PNG" width="40%"></a>
+						</p>
+						<p>
+							\[
+							S(q,t) = S_0 e^{2\omega(q)t} + \frac{\sigma^2 h_0^2 L}{q_0^2}g\left(\frac{q}{q_0}\right)(e^{2\omega(q)t} - 1)\\
+							F_{\text{fluc}} = \frac{1}{\rho_0} \sqrt{2 k_B T \mu \alpha_{\delta}(h)}\mathcal{N}
+							\]
+						</p>
+					</section>
+				</section>
 			</div>
 		</div>
 
