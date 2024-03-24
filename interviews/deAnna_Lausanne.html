@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Application Interview deAnna</title>
+
+		<meta name="description" content="Application Interview">
+		<meta name="author" content="Stefan Zitz">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<a href="https://github.com/Zitzeronion/Swalbe.jl">
+						<img src="../conferences/assets/Figure_1.png" alt="first figure" style="height: 360px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h3>Application Interview</h3>
+                    <h4>Post-doc in the Environmental Fluid Mechanics</h4>
+					<p>
+						<small><a href="https://forskning.ruc.dk/en/persons/zitz">Stefan Zitz</a></small>
+					</p>
+				</section>
+
+                <section data-auto-animate data-auto-animate-unmatched="fade">
+                    <h2>About me</h2>
+                    <ul>
+                        <li>Born and raised in Graz, Austria (second largest city in Austria)</li>
+                        <li>Civil service in 2008</li>
+                        <li>Started studying physics in 2009 and philosophy in 2011</li>
+                        <li>Wasn't the best B.Sc. student</li>
+                        <li>Rather active person who likes to try out new things</li>
+                    </ul>
+                </section>
+                <section>
+				    <section>
+				    	<section data-auto-animate data-auto-animate-unmatched="fade">
+                            <h2>HEP and I</h2>
+                            \[\mathcal{L} = \frac{1}{2}(D_{\mu}\phi^{ij})_a (D^{\mu}\phi^{ij})^{\ast}_a \\
+                            -\frac{1}{2}\psi^{T}_{iaL}\epsilon(D\!\!\!/\psi^i_R)_a + \frac{1}{2}\psi^{iT}_{aR}\epsilon(D\!\!\!/\psi_{iL})_a \\
+                            -\frac{1}{4}F_{a\mu\nu}F^{a\mu\nu} - g\sqrt{2}\text{Re}f^{abc}\phi^{ij}_a(\psi_{ibL}^T\epsilon\psi_{jcL}) \\
+                            - \frac{g^2}{8}|f^{abc}\phi^{ij}_b\phi^{kl}_c|^2 + \frac{g^2\theta}{64\pi^2}\epsilon_{\mu\nu\rho\sigma}F_a^{\mu\nu}F_a^{\rho\sigma}\]
+                            <span style="color: #FED650; font-size:50%">S. Weinberg, <em>The Quantum Theory of Fields III</em>, <b>Cambridge University Press 2005</b></span>
+                        </section>
+				    </section>
+                    <section>
+				    	<section data-auto-animate data-auto-animate-unmatched="fade">
+                            <h2>HEP and I</h2>
+                            <div class="r-stack">
+                                <p style="padding: 0.0em; margin: 50px -100px 0px -800px">
+                                    <a href="https://link.springer.com/article/10.1140/epjc/s10052-016-3942-y/figures/1">
+                                        <img src="../conferences/assets/masterEquations.webp" style="height: 420px; margin: 0 auto 4rem auto; background: transparent;" >
+                                    </a>
+                                </p>
+                                <p style="padding: 0.0em; margin: 100px 50px 0px 400px">
+                                    Conformal solution found using the Dyson-Schwinger equations, no progress on the Gribov-Singer ambiguity
+                                </p>
+                            </div>
+                            <span style="color: #FED650; font-size:50%">A. Maas and S. Zitz, <em>EPJC</em>, <b>76(113) 2016</b></span>
+                        </section>
+				    </section>
+                </section>
+
+                <section data-auto-animate data-auto-animate-unmatched="fade">
+					<h2>CFD at different scales</h2>
+					<a href="https://www.dierk-raabe.com/lattice-boltzmann-model-lbm"><img src="../conferences/assets/Raabe_scales.PNG" width="70%"></img></a><br>
+					<span style="color: #FED650; font-size:50%">D. Raabe, <em>Modelling Simul. Mater. Sci. Eng.</em>, <b>12 2004</b></span>
+				</section>
+
+				<section>
+                	<section data-auto-animate data-auto-animate-unmatched="fade">
+                	    <h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+                	    <p>
+                	        <blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
+                	            &ldquo;Weeks of coding have saved me hours of thinking.&rdquo;
+                	        </blockquote>
+                	    </p>
+                	    <p>
+                	        \[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0\\ 
+                	            \mathbf{u} \approx \frac{1}{\nu \alpha(h)}\left(-gh \nabla h -\frac{1}{\rho_0}h\nabla p + \mathbf{F}\right) \\
+                	            \partial_t h \approx \nabla \cdot \left(\frac{h^3}{3\mu}\nabla p\right)\]
+                	        <span style="color: #FED650; font-size:50%">S. Zitz et al., <em>JOSS</em>, <b>7(77) 2022</b>, S. Zitz et al., <em>PRE</em>, <b>100(3) 2019</b></span>
+                	    </p>
+					
+                	</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://github.com/Zitzeronion/Swalbe.jl">Swalbe.jl</a></h2>
+						<p>
+                	        <blockquote cite="https://www.youtube.com/watch?v=y9UGxyCyQbQ">
+                	            &ldquo;Ideas can be implemented and tested quickly with a two dimensional system....&rdquo;
+                	        </blockquote>
+                	    </p>
+                        <p>\[\partial_t h = \partial_x \left[M(h)\partial_x p + \sqrt{2k_BT M(h)}\mathcal{N}\right] \]</p>
+                
+						<p>\[F_{\text{fluc}} = \frac{1}{\rho_0}\sqrt{2k_BT\mu\alpha(h)}\mathcal{N}\]</p>
+						<p><span style="color: #FED650; font-size:50%">G. Grün et al., <em>J. Stat. Phys.</em>, <b>112, 2006</b>; S. Zitz et al., <em>PRE</em>, <b>104, 2021</b> </span></p>
+					</section>
+			
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+                        <h2>Fluctuating thin films</h2>
+                        <p>
+                            <a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/thermal_spectrum.PNG" width="40%"></a>
+                        </p>
+                        <p>
+                            \[S(q,t) = S_0 e^{2\omega(q)t} + \frac{\sigma^2 h_0^2 L}{q_0^2}g\left(\frac{q}{q_0}\right)(e^{2\omega(q)t} - 1)\]
+                        </p>
+                        <p><span style="color: #FED650; font-size:50%">G. Grün et al., <em>J. Stat. Phys.</em>, <b>112, 2006</b>; K. Mecke and M. Rauscher, <em>J. Phys.: Condens. Matter</em>, <b>17, 2005</b> </span></p>
+                    </section>
+                    <section data-auto-animate data-auto-animate-unmatched="fade">
+                    <h2>Rupture times</h2>
+                        <p>
+                            <a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/rup_angle_thermal.PNG" width="40%"></a>
+                        </p>
+                        <p>
+                            \[\chi_{\sigma}(\theta) \sim \frac{\log\left(\frac{h_0 L^{1/2}}{S_0^{1/2}}\right)}{\log\left(\frac{a \theta}{\sigma}\right)} \propto \frac{1}{\log(\theta/\sigma)}\]
+                        </p>
+                    </section>
+                    <section data-auto-animate data-auto-animate-unmatched="fade">
+                        <h2>Fluctuations and pattern</h2>
+                        <p>
+                            <a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="../conferences/assets/spacedep_thermal.PNG" width="40%"></a>
+                        </p>
+                        <p>
+                            \[\Xi = \frac{\tau_d(\pi/6)}{\tau_d(\pi/9)}  \propto  {\frac{U(\pi/9)}{U(\pi/6)} \sim \frac{\left(\pi/9\right)^3}{\left(\pi/6\right)^3} = \left(\frac{2}{3}\right)^3 = 0.296...}\]
+                        </p>
+                        <p><span style="color: #FED650; font-size:50%">A. Edwards et al., <em>Sci. Adv.</em>, <b>2(9), 2016</b> </span></p>
+                    </section>
+				</section>
+				<section>
+                    <section>
+						<h2>Switchable Substrates</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -700px">
+								<a href="https://www.science.org/doi/10.1126/science.288.5471.1624">
+									<img src="https://www.science.org/cms/10.1126/science.288.5471.1624/asset/66e669e5-9012-4cdc-ade8-455af0867a10/assets/graphic/se1708515002.jpeg" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
+								</a>
+							</p>
+							<P style="padding: 0.0em; margin: 0px 0px 0px 350px">
+								<span style="display: inline-block;" class="fragment fade-right">\[\partial_t h(\mathbf{x},t) = \nabla\cdot(M(h)\nabla p)\\ 
+									p(\mathbf{x},t) = -\gamma\Delta h - \Pi(h) \\
+									\theta(\mathbf{x},t) \approx \theta_0 + \delta\theta f(\mathbf{x},t)\\
+									f(\mathbf{x},t) = \sin(q_{\theta}(x+v_xt))\times\\\sin(q_{\theta}(y+v_yt))\]</span>
+							</P>
+						</div>
+						<span style="color: #FED650; font-size:50%">K. Ichimura et al., <em>Science</em>, <b>288(5471) 2000</b></span>
+					</section>
+
+                    <section>
+                        <h2>Dewetting of switchable substrates</h2>
+                        <p>
+                            <iframe width="420" height="250" src="https://www.youtube.com/embed/ewVSHU-jzt8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="420" height="250" src="https://www.youtube.com/embed/xl57RTFi4oI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="420" height="250" src="https://www.youtube.com/embed/QgOgNGkUQK4?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </p>
+                    </section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Static pattern</h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 50px 0px 0px -500px">
+								<img src="../conferences/assets/Clusters_sin_pictures_noV.svg" width="550">
+							</p>
+							<P style="padding: 0.0em; margin: 0px 0px 0px 500px">
+								Time scale $t_0$
+								\[ t_0 = \frac{3\mu}{\gamma h_0^3q_0^4} \]
+								Length scale $2\pi/q_0$
+								\[ q_0^2 = \frac{1}{2\gamma}\frac{\partial \Pi(h)}{\partial h}\bigg\rvert_{h=h_0} \]
+							</P>
+						</div>
+						<p><span style="color: #FED650; font-size:50%">K. Mecke, M. Rauscher, <em> J. Phys. Condens. Matter</em>, <b>17 2005</b> </span></p>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Droplet advection</h2>
+						<P>
+							<iframe width="720" height="450" src="https://www.youtube.com/embed/xl57RTFi4oI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</P>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Droplet advection</h2>
+						<p>
+							<video src="../conferences/assets/d0sm02082f2.mp4" data-autoplay controls loop></video>
+						</p>
+						<p><span style="color: #FED650; font-size:50%">J. Grawitter and H. Stark, <em>Soft Matter</em>, <b>17 2021</b> </span></p>
+					</section>
+					<section>
+						<h2>Morphologies</h2>
+						<p>
+							<img src="../conferences/assets/Morpho_lam2_diffGamma.svg" width="550" style="margin: 10px 0px 0px 0px; background: transparent;">
+						</p>
+						<p style="display: inline-block; margin: -50px 0px 0px 0px;">
+							\[\Gamma = \frac{v_{\theta}}{U_{\theta}}, \quad U_{\theta} = \frac{\gamma\Theta^3}{9\mu}\]
+						</p>
+					</section>
+					<section>
+						<h2>Metastable rivulets</h2>
+						<p>
+							\[\Delta h(t)\sim \frac{\lambda}{v_{\theta}}e^{\alpha t},\quad \Delta h(\tau_{\text{riv}})\sim \beta h_0\\
+							\tau_{\text{riv}} \sim \log(v_{\theta})\sim\log(\Gamma)\]
+						</p>
+						<p>
+							<img src="../conferences/assets/Riv_stability.svg" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
+						</p>
+						<p><span style="color: #FED650; font-size:50%">S. Zitz et al., <em>Phys. Rev. Fluid</em>, <b>8 2023</b> </span></p>
+					</section>
+				</section>
+                
+				
+				<section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2><a href="https://www.sciencedirect.com/science/article/pii/S0360319923012247">Electrolyzers</a></h2>
+						<div class="r-stack">
+							<p style="padding: 0.0em; margin: 0px 0px 0px -500px">
+								<img src="../conferences/assets/analytical_model_1.jpg" style="width: 320px; margin: 0; background: transparent;">
+							</p>
+							<p style="padding: 0.0em; margin: 10px 0px 0px 500px">
+								<img src="../conferences/assets/analytical_model_2.jpg" style="width: 960px; margin: 0; background: transparent;">
+							</p>
+						</div>
+						<p>
+							<ul>
+								<li>Flow profiles</li>
+								<li>Boundary conditions</li>
+							</ul>
+						</p>
+						<p><span style="color: #FED650; font-size:50%">A. Rajora & J.W. Haverkort, <em>Int. J. Hydrog. Energy</em>, <b>2023</b> </span></p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Circular flows</h2>
+						<p>
+							<video src="../conferences/assets/case_1.mp4" controls loop></video>
+						</p>
+						
+					</section>
+				</section>
+				
+				<section>
+					<h2>Conclusion</h2>
+					<ul>
+						<li>Developed, documented and tested software</li>
+						<li>Focused on wettability and surface tension</li>
+						<li>Touched LBM and finite volume (OpenFOAM)</li>
+					</ul>
+					<br>
+					<br>
+					<span style="color: #ff5555ff; font-size:150%">Thank you!<br> Questions? 🧐 </span>
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				mathjax2: {
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.MathJax2 ]
+			});
+
+		</script>
+
+	</body>
+</html>
