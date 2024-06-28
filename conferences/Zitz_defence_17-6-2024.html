@@ -33,7 +33,7 @@
 					<h3>Lattice Boltzmann simulations of the dynamics of thin liquid films</h3>
 					<h4><a href="https://orcid.org/0000-0002-2371-5610">Stefan Zitz</a></h4>
 					<p>
-						<small>Defence talk, July 17th 2024, FAU</small>
+						<small>Defense, July 17th 2024, FAU & HI-ERN</small>
 					</p>
 				</section>
 
@@ -65,38 +65,32 @@
 					<section>
 						<h2>Fluid dynamics</h2>
 						\[\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0 \\ 
-						  \frac{\partial (\rho\mathbf{u})}{\partial t}  = -\nabla \cdot (\rho\mathbf{u}\mathbf{u}) -\nabla p + \mathbf{F} 
+						  \frac{\partial (\rho\mathbf{u})}{\partial t} + \nabla \cdot (\rho\mathbf{u}\mathbf{u}) =  -\nabla p + \mathbf{F} 
 						  \\ \rho\left(\frac{\partial\mathbf{u}}{\partial t} + \nabla\cdot\mathbf{u}\mathbf{u}\right)  = -\nabla p + \mu\Delta\mathbf{u} + \mathbf{F} \]
 						<span style="color: #FED650; font-size:50%">C. L. Navier, Mém. l’Acad. sci. l’Inst. France, <b>1823</b>; G. G. Stokes, Trans. Cambridge Philos. Soc. <b>1842</b></span>
 					</section>
 					<section>
 						<h2>Gas dynamics</h2>
-						<img src="assets/Pam.png" width="75%"></img><br>
-						<span style="color: #FED650; font-size:50%">G. Reiter, Handbook of Adhesion Technology, <b>2018</b></span>
+						\[\partial_t f + \boldsymbol{\xi}\cdot\nabla f + \frac{\mathbf{F}}{\rho}\cdot\partial_{\boldsymbol{\xi}}f = \Omega(f) \]
+						Evolution equation of a distribution function $f(\mathbf{x},\boldsymbol{\xi}, t)$
+						\[ [f] = \frac{kg~s^3}{m^6}\]
+						<span style="color: #FED650; font-size:50%">T. Krüger et al., <em>The Lattice Boltzmann Method: Principles and Practice</em>, <b>2016</b></span>
 					</section>
 				</section>
 
+				<!-----
 				<section data-auto-animate data-auto-animate-unmatched="fade">
 					<h2>CFD at different scales</h2>
 					<a href="https://www.dierk-raabe.com/lattice-boltzmann-model-lbm"><img src="assets/Raabe_scales.PNG" width="70%"></img></a><br>
 					<span style="color: #FED650; font-size:50%">D. Raabe, <em>Modelling Simul. Mater. Sci. Eng.</em>, <b>12 2004</b></span>
-				</section>
-
-				<section>
 					<section>
 						<h2>The Setting</h2> 
 						<a href="https://upload.wikimedia.org/wikipedia/commons/8/82/Simulation_of_gas_for_relaxation_demonstration.gif"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Simulation_of_gas_for_relaxation_demonstration.gif" width="30%"></img></a><br>
 						<span style="color: #FED650; font-size:50%">Wikipedia</span>
 					</section>
-
-					<section>
-						<h2>The Boltzmann equation</h2> 
-						\[\partial_t f + \boldsymbol{\xi}\cdot\nabla f + \frac{\mathbf{F}}{\rho}\cdot\partial_{\boldsymbol{\xi}}f = \Omega(f) \]
-						Evolution equation of a distribution function $f(\mathbf{x},\boldsymbol{\xi}, t)$
-						\[ [f] = \frac{kg~s^3}{m^6}\]
-					
-					<span style="color: #FED650; font-size:50%">T. Krüger et al., <em>The Lattice Boltzmann Method: Principles and Practice</em>, <b>2016</b></span>
-					</section>
+				</section>
+				---->
+				<section>
 
 					<section>
 						<h2>Moments</h2> 
@@ -133,24 +127,24 @@
 
 					<section>
 						<h2>Hydrodynamic equations</h2>
-						\[\partial_t \int f \diff^3\xi + \int\boldsymbol{\xi}\cdot\nabla f \diff^3\xi + \frac{\mathbf{F}}{\rho}\cdot\int\partial_{\boldsymbol{\xi}}f \diff^3\xi = \int\Omega(f)\diff^3\xi \]
-						which is equal to
-						\[\partial_t\rho + \nabla\cdot(\rho\mathbf{u}) = 0\]
-						and for the first moment
-						\[\partial_t(\rho\mathbf{u}) + \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = \nabla\cdot\hat{\sigma} + \mathbf{F}\]	
+						\[\partial_t \int f \diff^3\xi + \int\boldsymbol{\xi}\cdot\nabla f \diff^3\xi + \frac{\mathbf{F}}{\rho}\cdot\int\partial_{\boldsymbol{\xi}}f \diff^3\xi \\= \int\Omega(f)\diff^3\xi \]
+
+						\[ 0^{th}:\quad \partial_t\rho + \nabla\cdot(\rho\mathbf{u}) = 0\]
+						\[ 1^{st}:\quad \partial_t(\rho\mathbf{u}) + \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = \nabla\cdot\hat{\sigma} + \mathbf{F}\]	
 						<span style="color: #FED650; font-size:50%"> S. Chen, G. D. Doolen, <em>Annu. Rev. Fluid Mech.</em>, <b>30 (1) 1998</b></span>	
 					</section>
 
 					<section>
 						<h2>Chapman-Enskog</h2>
 						Stress tensor $\hat{\sigma}$ depends on $f$, but we don't know $f$
-						\[f = f_{0} + \varepsilon f_1 + \varepsilon^2  f_2 + O(\varepsilon^3),\quad \partial_t = \varepsilon\partial_{t_1} + \varepsilon^2\partial_{t_2} + O(\varepsilon^3)  \]
-						with $f_0 \simeq f^{eq}$ and $\varepsilon \approx Kn \approx \frac{Ma}{Re}$, at zero'th order<br>
+						\[f = f_{0} + \varepsilon f_1 + \varepsilon^2  f_2 + O(\varepsilon^3) \\
+						\partial_t = \varepsilon\partial_{t_1} + \varepsilon^2\partial_{t_2} + O(\varepsilon^3)  \]
+						with $f_0 \simeq f^{eq}$ and $\varepsilon \approx Kn$, at zero'th order<br>
 						\[\partial_t(\rho\mathbf{u}) + \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = -\nabla p + \mathbf{F}\ \] 
 						at first order we recover Navier-Stokes<br>
 						<span style="color: #FED650; font-size:50%"> S. Chapman, T. G. Cowling, <b>1990</b>; D. Enskog,  <b>1917</b></span>	
 					</section>
-					
+					<!-----
 					<section data-auto-animate data-auto-animate-unmatched="fade">
                         <h2>Numerics</h2>
 						<a href="https://oaktrust.library.tamu.edu/bitstream/handle/1969.1/86068/OBrien.pdf?sequence=1&isAllowed=y"><img src="https://people.ece.cornell.edu/land/courses/ece5760/DE1_SOC/Lattice_Boltzmann/d2q9_streaming.PNG" width="75%"></img></a>
@@ -162,6 +156,7 @@
 						<span style="color: #FED650; font-size:50%">P. O'Brien, <em>A framework for digital watercolor</em>, <b>2008</b></span>
                     </section>
 
+					
 					<section data-auto-animate data-auto-animate-unmatched="fade">
                         <h2>Implementation</h2>
 						<pre><code data-trim data-noescape>
@@ -202,8 +197,9 @@ for cycle = 1:maxT
 						<span style="color: #FED650; font-size:50%">&#169 Jousef Murad</span>	
 					</section>
 
-					
+					-->
 				</section>
+				
 				<!-- Swalbe slides -->
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
@@ -223,7 +219,7 @@ for cycle = 1:maxT
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 					<h2>Shallow water thin film?</h2>
 					<p>
-						<img src="assets/Pam.png" width="60%"></img>
+						<img src="assets/pam_new.jpg" width="90%"></img>
 						<!-- 
 						<a href="https://en.wikipedia.org/wiki/Shallow_water_marine_environment#/media/File:Shallow_water.jpg">
 							<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Shallow_water.jpg" width="30%"></img>
@@ -279,7 +275,7 @@ for cycle = 1:maxT
 							\[
 							p = -\gamma(\Delta h - \Pi(h))\\
 							\Pi(h) = (1 - \cos\theta)\frac{(n-1)(m-1)}{(n-m)h_*}\\
-							\left[\left(\frac{h_*}{h}\right)^n -\left(\frac{h_*}{h}\right)^m\right] 
+							\left[\left(h_*/h\right)^n -\left(h_*/h\right)^m\right] 
 							\]
 						</p>
 						<span style="color: #FED650; font-size:50%">L. W. Schwartz and R. R. Eley, <em>J. Colloid Interface Sci.</em>, <b>202 1998</b></span>
@@ -295,12 +291,76 @@ for cycle = 1:maxT
                 
 				<section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Noise</h2>
+						<a href="https://giphy.com/gifs/justin-static-YRcXl6VfNhCorklI0R"><img src="assets/white_noise.gif" width="90%"></a>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Fluctuating thin films</h2>
+						<p>
+							\[
+							\partial_t h = \partial_x \left[\frac{h^3}{3\mu}\partial_x p + \sqrt{\frac{2k_BTh^3}{3\mu}}\mathcal{N}\right]
+							\]
+						</p>
+						<p>
+							\[
+							\langle\mathcal{N}(x,t)\rangle =0\\ 
+    						\langle\mathcal{N}(x,t)\mathcal{N}(x',t')\rangle =\delta(x-x')\delta(t-t')
+							\]
+						</p>
+						<span style="color: #FED650; font-size:50%">B. Davidovitch et al., <em>PRL</em>, <b>95 2005</b>; G. Grün et al., <em>J Stat Phys</em>, <b>122 2006</b></span>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Fluctuating thin films</h2>
+						<p>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/thermal_spectrum.PNG" width="40%"></a>
+						</p>
+						<p>
+							\[S(q,t) = S_0 e^{2\omega(q)t} + \frac{\sigma^2 h_0^2 L}{q_0^2}g\left(\frac{q}{q_0}\right)(e^{2\omega(q)t} - 1)\\
+							F_{\text{fluc}} = \rho_0^{-1}\sqrt{2 k_B T \mu \alpha_{\delta}(h)}\mathcal{N}\]
+						</p>
+						
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+					<h2>Rupture times</h2>
+						<p>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/rup_angle_thermal.PNG" width="40%"></a>
+						</p>
+						<p>
+							\[
+							\chi_{\sigma}(\theta) \sim \frac{\log\left(h_0 L^{1/2}/S_0^{1/2}\right)}{\log\left(\frac{a \theta}{\sigma}\right)} \propto \frac{1}{\log(\theta/\sigma)}
+							\]
+						</p>
+						<span style="color: #FED650; font-size:50%">S. Zitz, A. Scagliarini, J. Harting, <em>Phys. Rev. E</em>, <b>104 2021</b></span>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Fluctuations and pattern</h2>
+						<p>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/spacedep_thermal.PNG" width="40%"></a>
+						</p>
+						<p>
+							\[
+							\Xi = \frac{\tau_d(\pi/6)}{\tau_d(\pi/9)}  \propto  {\frac{U(\pi/9)}{U(\pi/6)} \sim \frac{\left(\pi/9\right)^3}{\left(\pi/6\right)^3} = \left(\frac{2}{3}\right)^3 = 0.296...}
+							\]
+						</p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Fluctuations and pattern</h2>
+						<p>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/event_rup_sound.PNG" width="40%"></a>
+						</p>
+						<p>
+							<audio src="../conferences/assets/deterministic.wav" controls></audio>
+							<audio src="../conferences/assets/stochastic.wav" controls></audio>
+						</p>
+					</section>
+					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Colorful fluid Dynamics</h2>
 						<a href="https://jugit.fz-juelich.de/compflu/swalbe.jl">
 							<img src="https://user-images.githubusercontent.com/26249811/189327279-44d73c33-e29b-4307-a11e-90d359bed3c7.png" style="background: transparent;" width="80%">
 						</a>
 						<br>
-						<span style="color: #FED650; font-size:50%">S. Zitz, A. Scagliarini, J. Harting, <em>Phys. Rev. Fluids</em>, <b><a href="https://journals.aps.org/prfluids/accepted/c507bYb7Z9a17175477f285350583a419494134fa">accepted</a></b></span>
+						<span style="color: #FED650; font-size:50%">S. Zitz, A. Scagliarini, J. Harting, <em>Phys. Rev. Fluids</em>, <b>8 2024</b></span>
 
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
@@ -370,10 +430,29 @@ for cycle = 1:maxT
 							\tau_{\text{riv}} \sim \log(v_{\theta})\sim\log(\Gamma)\]
 						</p>
 						<p>
-							<img src="assets/Riv_stability.svg" alt="light switch" style="height: 360px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
+							<img src="assets/Riv_stability.svg" alt="light switch" style="height: 320px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
 						</p>
 					</section>
-
+				</section>
+				
+				<section>
+					<h2>Conclusion</h2>
+					<a href="https://en.wikipedia.org/wiki/Law_of_the_instrument"><blockquote cite="">
+						&ldquo;If the only tool you have is a hammer, it is tempting to treat everything as if it were a nail.&rdquo;
+					</blockquote></a>
+					<ul>
+						<li>Thin films are cool 🧊</li>
+						<li>LBM is a great tool</li>
+						<li>Shallow water $\rightarrow$ large slip thin film models</li>
+					</ul>
+					<br>
+					<br>
+					<span style="color: #ff5555ff; font-size:150%">Thank you!</span>
+				</section>
+				<section>
+					<section>
+						<h2>Backup slides</h2>
+					</section>
 					<section>
 						<h2>Coalescence and Marangoni forces</h2>
 						<a href="https://jugit.fz-juelich.de/compflu/swalbe.jl">
@@ -454,85 +533,6 @@ for cycle = 1:maxT
 						</div>
 						\[ \tau_s \sim (\partial_x\gamma)^{-3/2} \]
 					</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Noise</h2>
-						<a href="https://giphy.com/gifs/justin-static-YRcXl6VfNhCorklI0R"><img src="assets/white_noise.gif" width="90%"></a>
-					</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Fluctuating thin films</h2>
-						<p>
-							\[
-							\partial_t h = \partial_x \left[\frac{h^3}{3\mu}\partial_x p + \sqrt{\frac{2k_BTh^3}{3\mu}}\mathcal{N}\right]
-							\]
-						</p>
-						<p>
-							\[
-							\langle\mathcal{N}(x,t)\rangle =0\\ 
-    						\langle\mathcal{N}(x,t)\mathcal{N}(x',t')\rangle =\delta(x-x')\delta(t-t')
-							\]
-						</p>
-					</section>
-
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Fluctuating thin films</h2>
-						<p>
-							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/thermal_spectrum.PNG" width="40%"></a>
-						</p>
-						<p>
-							\[
-							S(q,t) = S_0 e^{2\omega(q)t} + \frac{\sigma^2 h_0^2 L}{q_0^2}g\left(\frac{q}{q_0}\right)(e^{2\omega(q)t} - 1)\\
-							F_{\text{fluc}} = \frac{1}{\rho_0} \sqrt{2 k_B T \mu \alpha_{\delta}(h)}\mathcal{N}
-							\]
-						</p>
-					</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-					<h2>Rupture times</h2>
-						<p>
-							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/rup_angle_thermal.PNG" width="40%"></a>
-						</p>
-						<p>
-							\[
-							\chi_{\sigma}(\theta) \sim \frac{\log\left(\frac{h_0 L^{1/2}}{S_0^{1/2}}\right)}{\log\left(\frac{a \theta}{\sigma}\right)} \propto \frac{1}{\log(\theta/\sigma)}
-							\]
-						</p>
-					</section>
-					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Fluctuations and pattern</h2>
-							<p>
-								<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/spacedep_thermal.PNG" width="40%"></a>
-							</p>
-							<p>
-								\[
-								\Xi = \frac{\tau_d(\pi/6)}{\tau_d(\pi/9)}  \propto  {\frac{U(\pi/9)}{U(\pi/6)} \sim \frac{\left(\pi/9\right)^3}{\left(\pi/6\right)^3} = \left(\frac{2}{3}\right)^3 = 0.296...}
-								\]
-							</p>
-						</section>
-						<section data-auto-animate data-auto-animate-unmatched="fade">
-							<h2>Fluctuations and pattern</h2>
-								<p>
-									<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/event_rup_sound.PNG" width="40%"></a>
-								</p>
-								<p>
-									\[
-									\Xi = \frac{\tau_d(\pi/6)}{\tau_d(\pi/9)}  \propto  {\frac{U(\pi/9)}{U(\pi/6)} \sim \frac{\left(\pi/9\right)^3}{\left(\pi/6\right)^3} = \left(\frac{2}{3}\right)^3 = 0.296...}
-									\]
-								</p>
-							</section>
-				</section>
-				
-				<section>
-					<h2>Conclusion</h2>
-					<a href="https://en.wikipedia.org/wiki/Law_of_the_instrument"><blockquote cite="">
-						&ldquo;If the only tool you have is a hammer, it is tempting to treat everything as if it were a nail.&rdquo;
-					</blockquote></a>
-					<ul>
-						<li>LBM is part of the CFD community</li>
-						<li>Shallow water $\rightarrow$ large slip thin film models</li>
-						<li>Thin films are cool 🧊</li>
-					</ul>
-					<br>
-					<br>
-					<span style="color: #ff5555ff; font-size:150%">Thank you!</span>
 				</section>
 			</div>
 		</div>
