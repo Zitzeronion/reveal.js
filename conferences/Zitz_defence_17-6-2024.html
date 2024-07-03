@@ -39,9 +39,15 @@
 
 				<section>
 					<section>
+						<h2>thin film dynamics</h2>
+						\[\frac{\partial h(\mathbf{x},t)}{\partial t} = \nabla \cdot [M(h)\nabla p(\mathbf{x},t)] (+ X) \\
+						M(h) = \frac{h^3(\mathbf{x},t)}{3\mu}\quad \text{no-slip}\]
+						<span style="color: #FED650; font-size:50%">Oron et al., <em>Rev. Mod. Phys.</em>, <b>69 931 1997</b></span>
+					</section>
+					<section>
 						<h2>Thin films interference</h2>
-						<img src="assets/thin_film_refrac.jpg" width="90%"></img><br>
-						<span style="color: #FED650; font-size:50%">OpenStax College, <b>lumenlearning.com</b></span>
+						<img src="assets/Antireflection_coating_split_pic.jpg" width="80%"></img><br>
+						<span style="color: #FED650; font-size:50%">Thin-film interference, <b>wikipedia.com</b></span>
 					</section>
 			
 					<section>
@@ -58,24 +64,7 @@
 				</section>
 				<section>
 					<section>
-						<h2>Fluid dynamics</h2>
-						\[
-						\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0 \\ 
-						\rho\left(\frac{\partial\mathbf{u}}{\partial t} + \nabla\cdot\mathbf{u}\mathbf{u}\right)  = -\nabla p + \mu\Delta\mathbf{u} + \mathbf{F} 
-						\]
-						<span style="color: #FED650; font-size:50%">C. L. Navier, Mém. l’Acad. sci. l’Inst. France, <b>1823</b>; G. G. Stokes, Trans. Cambridge Philos. Soc. <b>1842</b></span>
-					</section>
-					<section>
-						<h2>thin film dynamics</h2>
-						\[\frac{\partial h}{\partial t} = \nabla \cdot (M(h)\nabla p) \\
-						M(h) = \frac{h^3}{3\mu}\quad \text{no-slip}\]
-						<span style="color: #FED650; font-size:50%">Oron et al., <em>Rev. Mod. Phys.</em>, <b>69 931 1997</b></span>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h2>Evolution of a distribution</h2>
+						<h2>Boltzmann equation</h2>
 						\[\partial_t f + \boldsymbol{\xi}\cdot\nabla f + \frac{\mathbf{F}}{\rho}\cdot\partial_{\boldsymbol{\xi}}f = \Omega(f) \]
 						Evolution equation of a distribution function $f(\mathbf{x},\boldsymbol{\xi}, t)$
 						\[ [f] = \frac{kg~s^3}{m^6}\]
@@ -141,7 +130,7 @@
 					<section data-auto-animate data-auto-animate-unmatched="fade">
                 	    <h2>Swalbe.jl</h2>
 						<p>
-							<a href="https://github.com/Zitzeronion/Swalbe.jl"><b>S</b></a>hallow <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>W</b></a>ater <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>L</b></a>attice <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>B</b></a>oltzmann sol<a href="https://github.com/Zitzeronion/Swalbe.jl"><b>E</b></a>r
+							<a href="https://github.com/Zitzeronion/Swalbe.jl"><b>S</b></a>hallow <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>W</b></a>ater <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>L</b></a>attice <a href="https://github.com/Zitzeronion/Swalbe.jl"><b>B</b></a>oltzmann solv<a href="https://github.com/Zitzeronion/Swalbe.jl"><b>E</b></a>r
 						</p>
 						<p>
 							\[\partial_t h + \nabla \cdot (h \mathbf{u})  = 0 \\ 
@@ -360,13 +349,13 @@
 				
 				<section>
 					<h2>Conclusion</h2>
-					<a href="https://en.wikipedia.org/wiki/Law_of_the_instrument"><blockquote cite="">
+					<blockquote cite="">
 						&ldquo;If the only tool you have is a hammer, it is tempting to treat everything as if it were a nail.&rdquo;
-					</blockquote></a>
+					</blockquote>
 					<ul>
 						<li>Thin films are cool 🧊</li>
 						<li>LBM is a great tool 🔨</li>
-						<li>Shallow water $\rightarrow$ large slip thin film models</li>
+						<li>Shallow water $\rightarrow$ thin film models</li>
 					</ul>
 					<br>
 					<br>
@@ -375,6 +364,14 @@
 				<section>
 					<section>
 						<h2>Backup slides</h2>
+					</section>
+					<section>
+						<h2>Fluid dynamics</h2>
+						\[
+						\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0 \\ 
+						\rho\left(\frac{\partial\mathbf{u}}{\partial t} + \nabla\cdot\mathbf{u}\mathbf{u}\right)  = -\nabla p + \mu\Delta\mathbf{u} + \mathbf{F} 
+						\]
+						<span style="color: #FED650; font-size:50%">C. L. Navier, Mém. l’Acad. sci. l’Inst. France, <b>1823</b>; G. G. Stokes, Trans. Cambridge Philos. Soc. <b>1842</b></span>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>CFD at different scales</h2>
