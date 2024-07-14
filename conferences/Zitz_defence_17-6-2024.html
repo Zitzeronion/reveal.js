@@ -99,7 +99,7 @@
 						Dominated by two-body collisions of uncorrelated particles<br>
 						<a href="https://link.springer.com/book/10.1007/978-3-319-44649-3"><img src="https://media.springernature.com/full/springer-static/image/chp%3A10.1007%2F978-3-319-44649-3_1/MediaObjects/315103_1_En_1_Fig5_HTML.gif?as=webp" width="50%"></img></a><br>
 						\[\Omega(f) = -\frac{1}{\tau} (f-f^{eq})\]
-						<p>with $f^{eq}$ is a <em>Maxwell-Boltzmann</em> distribution </p>
+						<p>with $f^{eq}$ being a <em>Maxwell-Boltzmann</em> distribution </p>
 					<span style="color: #FED650; font-size:50%"> P.L. Bhatnagar, E.P. Gross, M. Krook, <em>Phys. Rev.</em>, <b>93 (3) 1954</b></span>
 					</section>
 
@@ -114,7 +114,7 @@
 
 					<section>
 						<h2>Chapman-Enskog</h2>
-						Stress tensor $\hat{\sigma}$ depends on $f$, but we don't know $f$
+						Stress tensor $\hat{\sigma}$ depends on $f$, but $f$ is unknowen
 						\[f = f_{0} + \varepsilon f_1 + \varepsilon^2  f_2 + O(\varepsilon^3) \\
 						\partial_t = \varepsilon\partial_{t_1} + \varepsilon^2\partial_{t_2} + O(\varepsilon^3)  \]
 						with $f_0 \simeq f^{eq}$ and $\varepsilon \approx Kn$, at zero'th order<br>
@@ -207,31 +207,30 @@
 
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 						<h2>Fluctuating thin films</h2>
-						<p>
-							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/thermal_spectrum.PNG" width="40%"></a>
+						<p style="margin: 0px 0px 0px 0px">
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/thermocapwavesspec.svg" width="60%"></a>
 						</p>
-						<p>
-							\[S(q,t) = S_0 e^{2\omega(q)t} + \sigma^2 h_0^2 Lq_0^{-2}g(q/q_0)(e^{2\omega(q)t} - 1)\\
-							F_{\text{fluc}} = \rho_0^{-1}\sqrt{2 k_B T \mu \alpha_{\delta}(h)}\mathcal{N}\]
+						<p style="margin: -80px 0px 0px 0px">
+							\[S(q,t) = S_0 e^{2\omega(q)t} + G(\sigma),~F_{\text{fluc}} = \rho_0^{-1}\sqrt{2 k_B T \mu \alpha_{\delta}(h)}\mathcal{N}\]
 						</p>
 						<span style="color: #FED650; font-size:50%">S. Zitz, A. Scagliarini, J. Harting, <em>Phys. Rev. E</em>, <b>104 2021</b></span>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
 					<h2>Rupture times</h2>
 						<p>
-							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/rup_angle_thermal.PNG" width="40%"></a>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/Andrea_model_t0_normed_rupture_times.svg" width="60%"></a>
 						</p>
-						<p>
+						<p style="margin: -60px 0px 0px 0px">
 							\[
-							\chi_{\sigma}(\theta) \sim \frac{\log\left(h_0 L^{1/2}/S_0^{1/2}\right)}{\log\left(\frac{a \theta}{\sigma}\right)} \propto \frac{1}{\log(\theta/\sigma)}
+							\chi_{\sigma}(\theta) \sim \log\left(h_0 L^{1/2}/S_0^{1/2}\right)/\log\left(\frac{a \theta}{\sigma}\right) \propto \frac{1}{\log(\theta/\sigma)}
 							\]
 						</p>
 						
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Fluctuations and pattern</h2>
+						<h2>Fluctuation and pattern</h2>
 						<p>
-							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/spacedep_thermal.PNG" width="40%"></a>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/squarewavenondim.png" width="90%"></a>
 						</p>
 						<p>
 							\[
@@ -240,9 +239,9 @@
 						</p>
 					</section>
 					<section data-auto-animate data-auto-animate-unmatched="fade">
-						<h2>Fluctuations and pattern</h2>
+						<h2>Fluctuation and sound</h2>
 						<p>
-							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/event_rup_sound.PNG" width="40%"></a>
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/event_rup_sound.PNG" width="60%"></a>
 						</p>
 						<p>
 							<audio src="../conferences/assets/deterministic.wav" controls></audio>
@@ -265,7 +264,7 @@
 						<h2>Static pattern</h2>
 						<div class="r-stack">
 							<p style="padding: 0.0em; margin: 50px 0px 0px -500px">
-								<img src="assets/Clusters_sin_pictures_noV.svg" width="550">
+								<img src="assets/Clusters_sin_pictures_noV_simple.svg" width="550">
 							</p>
 							<P style="padding: 0.0em; margin: 0px 0px 0px 500px">
 								Time scale $t_0$
@@ -330,8 +329,8 @@
 					</blockquote>
 					<ul>
 						<li>Development of a LBM for thin liquid films</li>
-						<li>Effective solver for stochastic thin film equation</li>
-						<li>Novel dewetting state on switchable substrates</li>
+						<li>Effective solver for the stochastic thin film equation</li>
+						<li>Exciting dewetting state on switchable substrates</li>
 					</ul>
 					<br>
 					<br>
@@ -427,6 +426,18 @@ for cycle = 1:maxT
 							\]
 						</p>
 						<span style="color: #FED650; font-size:50%">L. W. Schwartz and R. R. Eley, <em>J. Colloid Interface Sci.</em>, <b>202 1998</b></span>
+					</section>
+
+					<section data-auto-animate data-auto-animate-unmatched="fade">
+						<h2>Fluctuating thin films</h2>
+						<p style="margin: 0px 0px 0px 0px">
+							<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.034801"><img src="assets/thermocapwavesspec.svg" width="60%"></a>
+						</p>
+						<p style="margin: -80px 0px 0px 0px">
+							\[S(q,t) = S_0 e^{2\omega(q)t} + \sigma^2 h_0^2 Lq_0^{-2}g(q/q_0)(e^{2\omega(q)t} - 1)\\
+							F_{\text{fluc}} = \rho_0^{-1}\sqrt{2 k_B T \mu \alpha_{\delta}(h)}\mathcal{N}\]
+						</p>
+						<span style="color: #FED650; font-size:50%">S. Zitz, A. Scagliarini, J. Harting, <em>Phys. Rev. E</em>, <b>104 2021</b></span>
 					</section>
 
 					<section data-auto-animate data-auto-animate-unmatched="fade">
